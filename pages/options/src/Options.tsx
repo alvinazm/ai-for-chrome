@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '@src/Options.css';
 import { Button } from '@extension/ui';
 import { withErrorBoundary, withSuspense } from '@extension/shared';
-import { t } from '@extension/i18n';
+import { t, subscribeLocale } from '@extension/i18n';
 import { FiSettings, FiCpu, FiShield, FiTrendingUp, FiHelpCircle } from 'react-icons/fi';
 import { GeneralSettings } from './components/GeneralSettings';
 import { ModelSettings } from './components/ModelSettings';
@@ -11,17 +11,40 @@ import { AnalyticsSettings } from './components/AnalyticsSettings';
 
 type TabTypes = 'general' | 'models' | 'firewall' | 'analytics' | 'help';
 
-const TABS: { id: TabTypes; icon: React.ComponentType<{ className?: string }>; label: string }[] = [
-  { id: 'general', icon: FiSettings, label: t('options_tabs_general') },
-  { id: 'models', icon: FiCpu, label: t('options_tabs_models') },
-  { id: 'firewall', icon: FiShield, label: t('options_tabs_firewall') },
-  { id: 'analytics', icon: FiTrendingUp, label: 'Analytics' },
-  { id: 'help', icon: FiHelpCircle, label: t('options_tabs_help') },
+const TAB_ICONS: { id: TabTypes; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: 'general', icon: FiSettings },
+  { id: 'models', icon: FiCpu },
+  { id: 'firewall', icon: FiShield },
+  { id: 'analytics', icon: FiTrendingUp },
+  { id: 'help', icon: FiHelpCircle },
 ];
+
+const TAB_LABEL_KEYS: Record<
+  TabTypes,
+  | 'options_tabs_general'
+  | 'options_tabs_models'
+  | 'options_tabs_firewall'
+  | 'options_tabs_analytics'
+  | 'options_tabs_help'
+> = {
+  general: 'options_tabs_general',
+  models: 'options_tabs_models',
+  firewall: 'options_tabs_firewall',
+  analytics: 'options_tabs_analytics',
+  help: 'options_tabs_help',
+};
 
 const Options = () => {
   const [activeTab, setActiveTab] = useState<TabTypes>('models');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [, setLocaleVersion] = useState(0);
+
+  useEffect(() => {
+    const unsubscribe = subscribeLocale(() => {
+      setLocaleVersion(prev => prev + 1);
+    });
+    return unsubscribe;
+  }, []);
 
   // Check for dark mode preference
   useEffect(() => {
@@ -70,7 +93,7 @@ const Options = () => {
             {t('options_nav_header')}
           </h1>
           <ul className="space-y-2">
-            {TABS.map(item => (
+            {TAB_ICONS.map(item => (
               <li key={item.id}>
                 <Button
                   onClick={() => handleTabClick(item.id)}
@@ -81,7 +104,7 @@ const Options = () => {
                         : `${isDarkMode ? 'bg-sky-800/50' : ''} text-white backdrop-blur-sm`
                     }`}>
                   <item.icon className="h-4 w-4" />
-                  <span>{item.label}</span>
+                  <span>{t(TAB_LABEL_KEYS[item.id])}</span>
                 </Button>
               </li>
             ))}

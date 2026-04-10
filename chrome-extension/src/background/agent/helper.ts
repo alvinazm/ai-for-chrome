@@ -381,6 +381,10 @@ export function createChatModel(providerConfig: ProviderConfig, modelConfig: Mod
 
       return new ChatLlama(args);
     }
+    case ProviderTypeEnum.Alibaba: {
+      // Alibaba (dashscope) is OpenAI-compatible, use the helper function
+      return createOpenAIChatModel(providerConfig, modelConfig, undefined);
+    }
     default: {
       // by default, we think it's a openai-compatible provider
       // Pass undefined for extraFetchOptions for default/custom cases

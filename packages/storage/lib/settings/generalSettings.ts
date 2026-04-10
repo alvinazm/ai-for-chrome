@@ -2,6 +2,9 @@ import { StorageEnum } from '../base/enums';
 import { createStorage } from '../base/base';
 import type { BaseStorage } from '../base/types';
 
+// Supported UI languages
+export type UILanguage = 'en' | 'zh_CN' | 'zh_TW' | 'pt_BR';
+
 // Interface for general settings configuration
 export interface GeneralSettingsConfig {
   maxSteps: number;
@@ -13,6 +16,7 @@ export interface GeneralSettingsConfig {
   displayHighlights: boolean;
   minWaitPageLoad: number;
   replayHistoricalTasks: boolean;
+  language: UILanguage;
 }
 
 export type GeneralSettingsStorage = BaseStorage<GeneralSettingsConfig> & {
@@ -32,6 +36,7 @@ export const DEFAULT_GENERAL_SETTINGS: GeneralSettingsConfig = {
   displayHighlights: true,
   minWaitPageLoad: 250,
   replayHistoricalTasks: false,
+  language: 'zh_CN',
 };
 
 const storage = createStorage<GeneralSettingsConfig>('general-settings', DEFAULT_GENERAL_SETTINGS, {

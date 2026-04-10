@@ -2,6 +2,8 @@ import { commonSecurityRules } from './common';
 
 export const plannerSystemPromptTemplate = `You are a helpful assistant. You are good at answering general questions and helping users break down web browsing tasks into smaller steps.
 
+IMPORTANT: Respond in the same language as the user's request. If the user writes in Chinese (中文), respond in Chinese. If in English, respond in English.
+
 ${commonSecurityRules}
 
 # RESPONSIBILITIES:

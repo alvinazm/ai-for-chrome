@@ -6,22 +6,19 @@ type I18nValue = {
   placeholders?: Record<string, { content?: string; example?: string }>;
 };
 
-function translate(key: MessageKey, substitutions?: string | string[]) {
-  const value = getMessageFromLocale(t.devLocale)[key] as I18nValue;
-  let message = value.message;
-  /**
-   * This is a placeholder replacement logic. But it's not perfect.
-   * It just imitates the behavior of the Chrome extension i18n API.
-   * Please check the official document for more information And double-check the behavior on production build.
-   *
-   * @url https://developer.chrome.com/docs/extensions/how-to/ui/localization-message-formats#placeholders
-   */
+type LocaleChangeListener = (locale: DevLocale) => void;
+
+const listeners: Set<LocaleChangeListener> = new Set();
+
+function translate(locale: DevLocale, key: MessageKey, substitutions?: string | string[]) {
+  const value = getMessageFromLocale(locale)[key] as I18nValue;
+  let message = value?.message ?? key;
   if (value.placeholders) {
-    Object.entries(value.placeholders).forEach(([key, { content }]) => {
+    Object.entries(value.placeholders).forEach(([k, { content }]) => {
       if (!content) {
         return;
       }
-      message = message.replace(new RegExp(`\\$${key}\\$`, 'gi'), content);
+      message = message.replace(new RegExp(`\\$${k}\\$`, 'gi'), content);
     });
   }
   if (!substitutions) {
@@ -37,8 +34,43 @@ function removePlaceholder(message: string) {
   return message.replace(/\$\d+/g, '');
 }
 
-export const t = (...args: Parameters<typeof translate>) => {
-  return removePlaceholder(translate(...args));
-};
+function createTranslateFunction(currentLocale: DevLocale) {
+  return (...args: [MessageKey, (string | string[])?]) => {
+    const [key, substitutions] = args;
+    return removePlaceholder(
+      translate(currentLocale, key as MessageKey, substitutions as string | string[] | undefined),
+    );
+  };
+}
 
-t.devLocale = defaultLocale as DevLocale;
+class I18nWrapper {
+  private _locale: DevLocale = defaultLocale as DevLocale;
+  private _translate = createTranslateFunction(this._locale);
+
+  get locale() {
+    return this._locale;
+  }
+
+  setLocale(locale: DevLocale) {
+    this._locale = locale;
+    this._translate = createTranslateFunction(locale);
+    listeners.forEach(listener => listener(locale));
+  }
+
+  subscribe(listener: LocaleChangeListener): () => void {
+    listeners.add(listener);
+    return () => listeners.delete(listener);
+  }
+
+  t = (...args: [MessageKey, (string | string[])?]) => {
+    return this._translate(...args);
+  };
+}
+
+const i18nInstance = new I18nWrapper();
+
+export const t = i18nInstance.t;
+export const setLocale = (locale: DevLocale) => i18nInstance.setLocale(locale);
+export const subscribeLocale = (listener: LocaleChangeListener) => i18nInstance.subscribe(listener);
+export const getLocale = () => i18nInstance.locale;
+export type { DevLocale };

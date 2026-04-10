@@ -109,6 +109,12 @@ export abstract class BaseAgent<T extends z.ZodType, M = unknown> {
       return false;
     }
 
+    // MiniMax doesn't support json_schema response format
+    if (this.modelName.includes('MiniMax')) {
+      logger.debug(`[${this.modelName}] MiniMax doesn't support structured output, using manual JSON extraction`);
+      return false;
+    }
+
     // Llama API models don't support json_schema response format
     if (this.provider === ProviderTypeEnum.Llama || this.isLlamaModel(this.modelName)) {
       logger.debug(`[${this.modelName}] Llama API doesn't support structured output, using manual JSON extraction`);
@@ -119,13 +125,12 @@ export abstract class BaseAgent<T extends z.ZodType, M = unknown> {
   }
 
   async invoke(inputMessages: BaseMessage[]): Promise<this['ModelOutput']> {
+    logger.info(
+      `[BaseAgent.invoke] modelName=${this.modelName}, provider=${this.provider}, withStructuredOutput=${this.withStructuredOutput}`,
+    );
     // Use structured output
     if (this.withStructuredOutput) {
-      logger.debug(`[${this.modelName}] Preparing structured output call with schema:`, {
-        schemaName: this.modelOutputToolName,
-        messageCount: inputMessages.length,
-        modelProvider: this.provider,
-      });
+      logger.info(`[${this.modelName}] Preparing structured output call with schema: ${this.modelOutputToolName}`);
 
       const structuredLlm = this.chatLLM.withStructuredOutput(this.modelOutputSchema, {
         includeRaw: true,
@@ -134,17 +139,13 @@ export abstract class BaseAgent<T extends z.ZodType, M = unknown> {
 
       let response = undefined;
       try {
-        logger.debug(`[${this.modelName}] Invoking LLM with structured output...`);
+        logger.info(`[${this.modelName}] Invoking LLM...`);
         response = await structuredLlm.invoke(inputMessages, {
           signal: this.context.controller.signal,
           ...this.callOptions,
         });
 
-        logger.debug(`[${this.modelName}] LLM response received:`, {
-          hasParsed: !!response.parsed,
-          hasRaw: !!response.raw,
-          rawContent: response.raw?.content?.slice(0, 500) + (response.raw?.content?.length > 500 ? '...' : ''),
-        });
+        logger.info(`[${this.modelName}] LLM response received`);
 
         if (response.parsed) {
           logger.debug(`[${this.modelName}] Successfully parsed structured output`);

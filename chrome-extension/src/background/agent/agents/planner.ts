@@ -53,10 +53,12 @@ export class PlannerAgent extends BaseAgent<typeof plannerOutputSchema, PlannerO
   async execute(): Promise<AgentOutput<PlannerOutput>> {
     try {
       this.context.emitEvent(Actors.PLANNER, ExecutionState.STEP_START, 'Planning...');
+      logger.info('Planner: Starting execute(), preparing messages...');
       // get all messages from the message manager, state message should be the last one
       const messages = this.context.messageManager.getMessages();
       // Use full message history except the first one
       const plannerMessages = [this.prompt.getSystemMessage(), ...messages.slice(1)];
+      logger.info(`Planner: Prepared ${plannerMessages.length} messages, invoking LLM...`);
 
       // Remove images from last message if vision is not enabled for planner but vision is enabled
       if (!this.context.options.useVisionForPlanner && this.context.options.useVision) {
@@ -78,6 +80,7 @@ export class PlannerAgent extends BaseAgent<typeof plannerOutputSchema, PlannerO
       }
 
       const modelOutput = await this.invoke(plannerMessages);
+      logger.info('Planner: LLM invoke completed');
       if (!modelOutput) {
         throw new Error('Failed to validate planner output');
       }

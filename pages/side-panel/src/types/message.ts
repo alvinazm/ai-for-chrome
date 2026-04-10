@@ -1,6 +1,6 @@
 export const ACTOR_PROFILES = {
   user: {
-    name: 'User',
+    name: '我',
     icon: 'icons/user.svg',
     iconBackground: '#4CAF50',
   },
@@ -10,12 +10,12 @@ export const ACTOR_PROFILES = {
     iconBackground: '#2196F3',
   },
   planner: {
-    name: 'Planner',
+    name: '计划Agent',
     icon: 'icons/planner.svg',
     iconBackground: '#FF9800',
   },
   navigator: {
-    name: 'Navigator',
+    name: '执行Agent',
     icon: 'icons/navigator.svg',
     iconBackground: '#40A9FF',
   },

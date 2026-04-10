@@ -1,20 +1,20 @@
 {
   "app_metadata_description": {
     "description": "Extension description",
-    "message": "Automate web tasks with AI! NanoBrowser is an open-source browser extension that lets you extract data, fill forms, and more."
+    "message": "使用 AI 自动化网页任务！NanoBrowser 是一款开源的浏览器扩展，能帮您提取数据、填写表单等。"
   },
   "app_metadata_name": {
     "description": "Extension name",
-    "message": "Nanobrowser: AI Web Agent & Automation"
+    "message": "Nanobrowser：AI 网页代理与自动化"
   },
   "errors_unknown": {
-    "message": "Unknown error occurred"
+    "message": "发生未知错误"
   },
   "errors_conn_serviceWorker": {
-    "message": "Failed to connect to service worker"
+    "message": "连接至 Service Worker 失败"
   },
   "errors_cmd_unknown": {
-    "message": "Unsupported command: $COMMAND$.\n\nAvailable commands: /state, /nohighlight, /replay <historySessionId>",
+    "message": "不支持的指令：$COMMAND$。\n\n可用指令：/state、/nohighlight、/replay <historySessionId>",
     "placeholders": {
       "command": {
         "content": "$1",
@@ -23,85 +23,85 @@
     }
   },
   "nav_newChat_a11y": {
-    "message": "New Chat"
+    "message": "新建对话"
   },
   "nav_loadHistory_a11y": {
-    "message": "Load History"
+    "message": "加载历史记录"
   },
   "nav_settings_a11y": {
-    "message": "Settings"
+    "message": "设置"
   },
   "nav_back": {
-    "message": "← Back"
+    "message": "← 返回"
   },
   "nav_back_a11y": {
-    "message": "Back to chat"
+    "message": "回到对话"
   },
   "welcome_title": {
-    "message": "Welcome to Nanobrowser!"
+    "message": "欢迎使用 Nanobrowser！"
   },
   "welcome_instruction": {
-    "message": "To get started, please configure your API keys in the settings page."
+    "message": "开始使用前，请先完成 API 密钥的设置。"
   },
   "welcome_openSettings": {
-    "message": "Open Settings"
+    "message": "打开设置"
   },
   "welcome_quickStart": {
-    "message": "Quick Start Guide"
+    "message": "快速入门指南"
   },
   "welcome_joinCommunity": {
-    "message": "Join Our Community"
+    "message": "加入我们的社区"
   },
   "status_checkingConfig": {
-    "message": "Checking configuration..."
+    "message": "正在检查配置..."
   },
   "chat_buttons_stop": {
-    "message": "Stop"
+    "message": "停止"
   },
   "chat_buttons_replay": {
-    "message": "Replay"
+    "message": "回放"
   },
   "chat_buttons_send": {
-    "message": "Send"
+    "message": "发送"
   },
   "chat_input_placeholder": {
-    "message": "What can I help you with?"
+    "message": "有什么需要帮助的吗？"
   },
   "chat_input_form": {
-    "message": "Chat input form"
+    "message": "对话输入表单"
   },
   "chat_input_editor": {
-    "message": "Message input"
+    "message": "消息输入"
   },
   "chat_history_title": {
-    "message": "Chat History"
+    "message": "对话历史记录"
   },
   "chat_history_empty": {
-    "message": "No chat history available"
+    "message": "没有可用的对话历史记录"
   },
   "chat_history_bookmark": {
-    "message": "Bookmark session"
+    "message": "将会话加入书签"
   },
   "chat_history_delete": {
-    "message": "Delete session"
+    "message": "删除会话"
   },
   "chat_bookmarks_header": {
-    "message": "Quick Start"
+    "message": "快速入门"
   },
   "chat_bookmarks_saveEdit": {
-    "message": "Save changes"
+    "message": "保存更改"
   },
   "chat_bookmarks_cancelEdit": {
-    "message": "Cancel changes"
+    "message": "取消更改"
   },
   "chat_bookmarks_edit": {
-    "message": "Edit bookmark title"
+    "message": "编辑书签标题"
   },
   "chat_bookmarks_delete": {
-    "message": "Delete bookmark"
+    "message": "删除书签"
   },
   "chat_replay_starting": {
-    "message": "Starting replay of task:\n\n\"$TASK$\"",
+    "message": "开始回放任务：\n\n\"$TASK$\"",
     "placeholders": {
       "task": {
         "content": "$1",
@@ -110,7 +110,7 @@
     }
   },
   "chat_replay_failed": {
-    "message": "Replay failed: $ERROR_MESSAGE$",
+    "message": "回放失败：$ERROR_MESSAGE$",
     "placeholders": {
       "error_message": {
         "content": "$1",
@@ -119,13 +119,13 @@
     }
   },
   "chat_replay_invalidArgs": {
-    "message": "Invalid arguments. Please use the format: /replay <historySessionId>"
+    "message": "参数无效。请使用此格式：/replay <historySessionId>"
   },
   "chat_replay_disabled": {
-    "message": "Replay is disabled in general settings. Please enable \"Replay Historical Tasks\" in the extension settings to use this feature."
+    "message": "回放功能已在通用设置中禁用。请在扩展程序的设置中启用 \"回放历史任务\" 以使用此功能。"
   },
   "chat_replay_noHistory": {
-    "message": "No action history found for session \"$SESSION_ID$...\". This session may not contain replayable actions.\n\nIt's a replay session itself (replay sessions cannot be replayed again), or it was created before the replay feature was available.",
+    "message": "找不到会话 \"$SESSION_ID$...\" 的操作历史记录。此会话可能未包含可回放的操作。\n\n这可能是因为它本身就是一个回放会话（回放会话无法再次回放），或是在此功能推出之前所建立的。",
     "placeholders": {
       "session_id": {
         "content": "$1",
@@ -134,143 +134,143 @@
     }
   },
   "chat_stt_processing": {
-    "message": "Processing speech..."
+    "message": "正在处理语音..."
   },
   "chat_stt_recording_stop": {
-    "message": "Stop recording"
+    "message": "停止录音"
   },
   "chat_stt_input_start": {
-    "message": "Start voice input"
+    "message": "开始语音输入"
   },
   "chat_stt_processingFailed": {
-    "message": "Failed to process speech recording"
+    "message": "处理语音输入失败"
   },
   "chat_stt_model_notFound": {
-    "message": "No speech-to-text model configured or not a Gemini model. Please configure a Gemini model in settings."
+    "message": "尚未设置语音转文字模型，或所选择的不是 Gemini 模型。请在设置中选择 Gemini 模型。"
   },
   "chat_stt_recognitionFailed": {
-    "message": "Speech recognition failed"
+    "message": "语音识别失败"
   },
   "chat_stt_microphone_permissionDenied": {
-    "message": "Microphone access denied. Please enable microphone permissions in browser settings."
+    "message": "麦克风存取被拒绝。请在浏览器设置中启用麦克风权限。"
   },
   "chat_stt_microphone_accessFailed": {
-    "message": "Failed to access microphone. "
+    "message": "无法存取麦克风。"
   },
   "chat_stt_microphone_grantPermission": {
-    "message": "Please grant microphone permission."
+    "message": "请授予麦克风权限。"
   },
   "chat_stt_microphone_notFound": {
-    "message": "No microphone found."
+    "message": "找不到麦克风。"
   },
   "permissions_microphone_title": {
-    "message": "Enable Voice Input"
+    "message": "启用语音输入"
   },
   "permissions_microphone_description": {
-    "message": "Nanobrowser needs microphone access to convert your speech to text."
+    "message": "Nanobrowser 需要麦克风存取权限，才能将语音转换为文字。"
   },
   "permissions_microphone_grantButton": {
-    "message": "Grant Microphone Permission"
+    "message": "授予麦克风权限"
   },
   "permissions_microphone_requesting": {
-    "message": "Requesting microphone permission..."
+    "message": "正在请求麦克风权限..."
   },
   "permissions_microphone_grantedSuccess": {
-    "message": "✅ Microphone permission granted! You can now use voice input."
+    "message": "✅ 已授予麦克风权限！您现在可以使用语音输入了。"
   },
   "permissions_microphone_grantedButton": {
-    "message": "Permission Granted"
+    "message": "已授予权限"
   },
   "permissions_microphone_denied": {
-    "message": "Permission denied. "
+    "message": "权限被拒绝。"
   },
   "permissions_microphone_allowHelp": {
-    "message": "Please click \"Allow\" when prompted for microphone access."
+    "message": "当系统提示授予麦克风存取权限时，请点击 \"允许\" 。"
   },
   "permissions_microphone_notFound": {
-    "message": "No microphone found. Please check your audio devices."
+    "message": "找不到麦克风。请检查您的音频设备。"
   },
   "permissions_microphone_alreadyGranted": {
-    "message": "✅ Microphone permission already granted!"
+    "message": "✅ 已授予麦克风权限！"
   },
   "permissions_microphone_alreadyGrantedButton": {
-    "message": "Permission Already Granted"
+    "message": "已授予权限"
   },
   "options_nav_header": {
-    "message": "Settings"
+    "message": "设置"
   },
   "options_tabs_general": {
-    "message": "General"
+    "message": "通用"
   },
   "options_tabs_models": {
-    "message": "Models"
+    "message": "模型"
   },
   "options_tabs_firewall": {
-    "message": "Firewall"
+    "message": "防火墙"
   },
   "options_tabs_help": {
-    "message": "Help"
+    "message": "帮助"
   },
   "options_tabs_analytics": {
-    "message": "Analytics"
+    "message": "分析"
   },
 
   "options_general_header": {
-    "message": "General"
+    "message": "通用设置"
   },
   "options_general_maxSteps": {
-    "message": "Max Steps per Task"
+    "message": "单个任务的最大步骤数"
   },
   "options_general_maxSteps_desc": {
-    "message": "Step limit per task"
+    "message": "限制单个任务的步骤数量"
   },
   "options_general_maxActions": {
-    "message": "Max Actions per Step"
+    "message": "单个步骤的最大操作数"
   },
   "options_general_maxActions_desc": {
-    "message": "Action limit per step"
+    "message": "限制单个步骤的操作数量"
   },
   "options_general_maxFailures": {
-    "message": "Failure Tolerance"
+    "message": "连续失败允许次数"
   },
   "options_general_maxFailures_desc": {
-    "message": "How many consecutive failures before stopping"
+    "message": "在停止执行前，可允许的连续失败次数"
   },
   "options_general_enableVision": {
-    "message": "Enable Vision"
+    "message": "启用视觉能力"
   },
   "options_general_enableVision_desc": {
-    "message": "Use vision capability of LLMs (consumes more tokens for better results)"
+    "message": "使用大语言模型的视觉能力（将会消耗更多的 token 以取得更好的结果）"
   },
   "options_general_displayHighlights": {
-    "message": "Display Highlights"
+    "message": "显示醒目标记"
   },
   "options_general_displayHighlights_desc": {
-    "message": "Show visual highlights on interactive elements (e.g. buttons, links, etc.)"
+    "message": "在可交互的元素（如按钮、链接等）上显示可视化醒目标记"
   },
   "options_general_planningInterval": {
-    "message": "Replanning Frequency"
+    "message": "重新规划频率"
   },
   "options_general_planningInterval_desc": {
-    "message": "Reconsider and update the plan every [Number] steps"
+    "message": "每隔 [Number] 个步骤重新评估并更新计划"
   },
   "options_general_minWaitPageLoad": {
-    "message": "Page Load Wait Time"
+    "message": "页面加载等待时间"
   },
   "options_general_minWaitPageLoad_desc": {
-    "message": "Minimum wait time after page loads (250-5000ms)"
+    "message": "页面加载后的最短等待时间（250-5000 毫秒）"
   },
   "options_general_replayHistoricalTasks": {
-    "message": "Replay Historical Tasks( experimental )"
+    "message": "回放历史任务（实验性功能）"
   },
   "options_general_replayHistoricalTasks_desc": {
-    "message": "Enable storing and replaying of agent step history (experimental, may have issues)"
+    "message": "启用存储与回放代理程序的步骤历史记录（此为实验性功能，可能存在问题）"
   },
   "options_general_language": {
-    "message": "Interface Language"
+    "message": "界面语言"
   },
   "options_general_language_desc": {
-    "message": "Choose your language"
+    "message": "选择 Nanobrowser 界面的显示语言"
   },
   "options_general_language_en": {
     "message": "English"
@@ -284,148 +284,143 @@
   "options_general_language_pt_BR": {
     "message": "Português"
   },
-
   "options_models_providers_header": {
-    "message": "LLM Providers"
+    "message": "LLM 提供商"
   },
   "options_models_providers_notConfigured": {
-    "message": "No providers configured yet. Add a provider to get started."
+    "message": "尚未设置任何提供商。请新增一个提供商以开始使用。"
   },
   "options_models_providers_btnCancel": {
-    "message": "Cancel"
+    "message": "取消"
   },
   "options_models_providers_btnSave": {
-    "message": "Save"
+    "message": "保存"
   },
   "options_models_providers_btnDelete": {
-    "message": "Delete"
+    "message": "删除"
   },
   "options_models_providers_setupInstructions": {
-    "message": "Enter your API key and click Save to set it up."
+    "message": "请输入您的 API 密钥，然后点击 [保存] 进行设置。"
   },
   "options_models_providers_custom_name": {
-    "message": "Name"
+    "message": "名称"
   },
   "options_models_providers_custom_name_desc": {
-    "message": "Provider name (spaces are not allowed when saving)"
+    "message": "提供商名称（保存时不允许使用空格）"
   },
   "options_models_providers_custom_name_placeholder": {
-    "message": "Provider name"
+    "message": "提供商名称"
   },
-
   "options_models_providers_apiKey": {
-    "message": "API Key"
+    "message": "API 密钥"
   },
   "options_models_providers_apiKey_placeholder_optional": {
-    "message": "API Key (optional)"
+    "message": "API 密钥（选填）"
   },
   "options_models_providers_apiKey_placeholder_required": {
-    "message": "API Key (required)"
+    "message": "API 密钥（必填）"
   },
   "options_models_providers_apiKey_placeholder_ollama": {
-    "message": "API Key (leave empty for Ollama)"
+    "message": "API 密钥（Ollama 可留空）"
   },
   "options_models_providers_apiKey_hide": {
-    "message": "Hide API key"
+    "message": "隐藏 API 密钥"
   },
   "options_models_providers_apiKey_show": {
-    "message": "Show API key"
+    "message": "显示 API 密钥"
   },
-
   "options_models_selection_header": {
-    "message": "Model Selection"
+    "message": "模型选择"
   },
   "options_models_speechToText_header": {
-    "message": "Speech-to-Text Model"
+    "message": "语音转文字模型"
   },
-
   "options_models_agents_navigator": {
-    "message": "Navigates websites and performs actions"
+    "message": "浏览网站并执行操作"
   },
   "options_models_agents_planner": {
-    "message": "Develops and refines strategies to complete tasks"
+    "message": "制定并调整策略以完成任务"
   },
-
   "options_models_labels_model": {
-    "message": "Model"
+    "message": "模型"
   },
   "options_models_labels_temperature": {
-    "message": "Temperature"
+    "message": "温度"
   },
   "options_models_labels_topP": {
     "message": "Top P"
   },
   "options_models_labels_reasoning": {
-    "message": "Reasoning"
+    "message": "推理"
   },
   "options_models_stt_desc": {
-    "message": "Configure the Gemini model used for converting speech to text when using the microphone feature."
+    "message": "设置在使用麦克风功能时，将语音转换为文字所使用的 Gemini 模型。"
   },
   "options_models_chooseModel": {
-    "message": "Choose Model"
+    "message": "选择模型"
   },
   "options_models_addNewProvider": {
-    "message": "Add New Provider"
+    "message": "新增提供商"
   },
   "options_models_providers_openaiCompatible": {
-    "message": "OpenAI-compatible API Provider"
+    "message": "与 OpenAI 兼容的 API 提供商"
   },
   "options_models_providers_baseUrl": {
-    "message": "Base URL"
+    "message": "基础 URL"
   },
   "options_models_providers_endpoint": {
-    "message": "Endpoint"
+    "message": "端点"
   },
   "options_models_providers_deployment": {
-    "message": "Deployment"
+    "message": "部署"
   },
   "options_models_providers_apiVersion": {
-    "message": "API Version"
+    "message": "API 版本"
   },
   "options_models_providers_models": {
-    "message": "Models"
+    "message": "模型"
   },
   "options_models_providers_placeholders_baseUrl_custom": {
-    "message": "Required OpenAI-compatible API endpoint"
+    "message": "必须提供与 OpenAI 兼容的 API 端点"
   },
   "options_models_providers_placeholders_baseUrl_azure": {
     "message": "https://YOUR_RESOURCE_NAME.openai.azure.com/"
   },
   "options_models_providers_placeholders_baseUrl_openrouter": {
-    "message": "OpenRouter Base URL (optional, defaults to https://openrouter.ai/api/v1)"
+    "message": "OpenRouter 基础 URL（选填，默认为 https://openrouter.ai/api/v1）"
   },
   "options_models_providers_placeholders_baseUrl_llama": {
-    "message": "Llama API Base URL (defaults to https://api.llama.com/v1)"
+    "message": "Llama API 基础 URL（默认为 https://api.llama.com/v1）"
   },
   "options_models_providers_placeholders_baseUrl_ollama": {
-    "message": "Ollama base URL"
+    "message": "Ollama 基础 URL"
   },
   "options_models_providers_placeholders_azureDeployment": {
-    "message": "Enter Azure model name (e.g. gpt-4o, gpt-4o-mini)"
+    "message": "请输入 Azure 模型的部署名称（例如 gpt-4o, gpt-4o-mini）"
   },
   "options_models_providers_placeholders_azureApiVersion": {
-    "message": "e.g., 2025-04-01-preview"
+    "message": "例如：2025-04-01-preview"
   },
   "options_models_providers_deployment_desc": {
-    "message": "Type model name and press Enter or Space to set. Deployment name should match OpenAI model name (e.g., gpt-4o) for best compatibility."
+    "message": "输入模型名称后，按下 Enter 或空格键以完成设置。为获得最佳的兼容性，部署名称建议与 OpenAI 的模型名称（例如 gpt-4o）保持一致。"
   },
   "options_models_providers_models_instructions": {
-    "message": "Type and Press Enter or Space to add."
+    "message": "输入后按下 Enter 或空格键以新增。"
   },
   "options_models_providers_models_openrouter_empty": {
-    "message": "No models selected. Add model names manually if needed."
+    "message": "未选择任何模型。如有需要，请手动新增模型名称。"
   },
   "options_models_providers_ollama_reminder": {
-    "message": "environment variable MUST be set for the Ollama server."
+    "message": "请务必为 Ollama 服务器设置环境变量。"
   },
   "options_models_providers_ollama_learnMore": {
-    "message": "Learn more"
+    "message": "了解更多"
   },
   "options_models_providers_errors_spacesNotAllowed": {
-    "message": "Spaces are not allowed in provider names. Please use underscores or other characters instead."
+    "message": "提供商名称不允许使用空格。请改用下划线或其他字符。"
   },
   "options_models_providers_errors_baseUrlRequired": {
-    "message": "Base URL is required for $PROVIDER$. Please enter it.",
+    "message": "必须为 $PROVIDER$ 提供基础 URL，请手动输入。",
     "placeholders": {
       "provider": {
         "content": "$1",
@@ -433,91 +428,89 @@
       }
     }
   },
-
   "options_firewall_header": {
-    "message": "Firewall"
+    "message": "防火墙"
   },
   "options_firewall_enableToggle": {
-    "message": "Enable Firewall"
+    "message": "启用防火墙"
   },
   "options_firewall_toggleFirewall_a11y": {
-    "message": "Toggle Firewall"
+    "message": "切换防火墙"
   },
   "options_firewall_allowList_header": {
-    "message": "Allow List"
+    "message": "允许列表"
   },
   "options_firewall_allowList_empty": {
-    "message": "No domains in allow list. Empty allow list means all non-denied domains are allowed."
+    "message": "允许列表中没有域名。若允许列表为空，则表示所有未在拒绝列表中的域名都将被允许。"
   },
   "options_firewall_denyList_header": {
-    "message": "Deny List"
+    "message": "拒绝列表"
   },
   "options_firewall_denyList_empty": {
-    "message": "No domains in deny list"
+    "message": "拒绝列表中没有域名"
   },
   "options_firewall_placeholders_domainUrl": {
-    "message": "Enter domain or URL (e.g. example.com, localhost, 127.0.0.1)"
+    "message": "请输入域名或 URL（例如 example.com, localhost, 127.0.0.1）"
   },
   "options_firewall_btnAdd": {
-    "message": "Add"
+    "message": "新增"
   },
   "options_firewall_btnRemove": {
-    "message": "Remove"
+    "message": "移除"
   },
   "options_firewall_howItWorks_header": {
-    "message": "How the Firewall Works"
+    "message": "防火墙运作原理"
   },
   "options_firewall_howItWorks": {
-    "message": "The firewall contains a deny list and an allow list.\nIf both lists are empty, all URLs are allowed\nDeny list takes priority - if a URL matches any deny list entry, it's blocked\nWhen allow list is empty, all non-denied URLs are allowed\nWhen allow list is not empty, only matching URLs are allowed\nWildcards are NOT supported yet\nAllow list is preferred over deny list"
+    "message": "防火墙包含一个拒绝列表和一个允许列表。\n- 如果两个列表都为空，则允许所有 URL。\n- 拒绝列表具有较高优先级。如果一个 URL 符合任何拒绝列表中的项目，它将被封锁。\n- 当允许列表为空时，所有未被拒绝的 URL都会被允许。\n- 当允许列表不为空时，只有符合列表中项目的 URL 才被允许。\n- 目前尚不支持通配符。\n- 建议优先使用允许列表，而非拒绝列表。"
   },
-
   "bg_errors_noTabId": {
-    "message": "No tab ID provided"
+    "message": "未提供标签页 ID"
   },
   "bg_errors_noTaskId": {
-    "message": "No task ID provided"
+    "message": "未提供任务 ID"
   },
   "bg_errors_noRunningTask": {
-    "message": "No running task"
+    "message": "没有执行中的任务"
   },
   "bg_cmd_newTask_noTask": {
-    "message": "No task provided"
+    "message": "未提供任务"
   },
   "bg_cmd_followUpTask_noTask": {
-    "message": "No follow up task provided"
+    "message": "未提供后续任务"
   },
   "bg_cmd_followUpTask_cleaned": {
-    "message": "Executor was cleaned up, can not add follow-up task"
+    "message": "执行器已被清理，无法新增后续任务。"
   },
   "bg_cmd_resumeTask_noTask": {
-    "message": "No task to resume"
+    "message": "没有可继续的任务。"
   },
   "bg_cmd_state_printed": {
-    "message": "State printed to console"
+    "message": "状态已输出至控制台。"
   },
   "bg_cmd_state_failed": {
-    "message": "Failed to get state"
+    "message": "无法取得状态"
   },
   "bg_cmd_nohighlight_ok": {
-    "message": "highlight removed"
+    "message": "醒目标记已移除。"
   },
   "bg_cmd_stt_noAudioData": {
-    "message": "No audio data provided"
+    "message": "未提供音频数据"
   },
   "bg_cmd_stt_failed": {
-    "message": "Speech recognition failed"
+    "message": "语音识别失败"
   },
   "bg_cmd_replay_noHistory": {
-    "message": "No history session ID provided"
+    "message": "未提供历史会话 ID。"
   },
   "bg_cmd_replay_failed": {
-    "message": "Replay failed"
+    "message": "回放失败"
   },
   "bg_setup_noApiKeys": {
-    "message": "Please configure API keys in the settings first"
+    "message": "请先在设置页面中完成 API 密钥的设置。"
   },
   "bg_setup_noProvider": {
-    "message": "Provider $PROVIDER$ not found in the settings",
+    "message": "在设置中找不到提供商 $PROVIDER$。",
     "placeholders": {
       "provider": {
         "content": "$1",
@@ -526,22 +519,22 @@
     }
   },
   "bg_setup_noNavigatorModel": {
-    "message": "Please choose a model for the navigator in the settings first"
+    "message": "请先在设置中为导航代理程序选择一个模型。"
   },
   "exec_errors_maxStepsReached": {
-    "message": "Max steps reached"
+    "message": "已达步骤上限"
   },
   "exec_errors_maxFailuresReached": {
-    "message": "Max failures reached"
+    "message": "已达失败次数上限。"
   },
   "exec_task_cancel": {
-    "message": "Task cancelled"
+    "message": "任务已取消"
   },
   "exec_task_pause": {
-    "message": "Task paused"
+    "message": "任务已暂停"
   },
   "exec_task_fail": {
-    "message": "Task failed: \n\n$ERROR_MESSAGE$",
+    "message": "任务失败：\n\n$ERROR_MESSAGE$",
     "placeholders": {
       "error_message": {
         "content": "$1",
@@ -550,13 +543,13 @@
     }
   },
   "exec_replay_cancel": {
-    "message": "Replay cancelled"
+    "message": "回放已取消"
   },
   "exec_replay_ok": {
-    "message": "Replay completed"
+    "message": "回放已完成"
   },
   "exec_replay_fail": {
-    "message": "Replay failed: \n\n$ERROR_MESSAGE$",
+    "message": "回放失败：\n\n$ERROR_MESSAGE$",
     "placeholders": {
       "error_message": {
         "content": "$1",
@@ -565,14 +558,13 @@
     }
   },
   "exec_replay_historyNotFound": {
-    "message": "History not found"
+    "message": "找不到历史记录"
   },
   "exec_replay_historyEmpty": {
-    "message": "History is empty"
+    "message": "历史记录为空"
   },
-
   "act_searchGoogle_start": {
-    "message": "Searching for \"$QUERY$\" in Google",
+    "message": "正在 Google 上搜索 \"$QUERY$\"",
     "placeholders": {
       "query": {
         "content": "$1",
@@ -581,7 +573,7 @@
     }
   },
   "act_searchGoogle_ok": {
-    "message": "Searched for \"$QUERY$\" in Google",
+    "message": "已在 Google 上搜索 \"$QUERY$\"",
     "placeholders": {
       "query": {
         "content": "$1",
@@ -590,7 +582,7 @@
     }
   },
   "act_goToUrl_start": {
-    "message": "Navigating to $URL$",
+    "message": "正在前往 $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -599,7 +591,7 @@
     }
   },
   "act_goToUrl_ok": {
-    "message": "Navigated to $URL$",
+    "message": "已前往 $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -608,13 +600,13 @@
     }
   },
   "act_goBack_start": {
-    "message": "Navigating back"
+    "message": "正在回到上一页"
   },
   "act_goBack_ok": {
-    "message": "Navigated back"
+    "message": "已回到上一页"
   },
   "act_wait_start": {
-    "message": "Waiting for $SECONDS$ seconds",
+    "message": "等待 $SECONDS$ 秒",
     "placeholders": {
       "seconds": {
         "content": "$1",
@@ -623,7 +615,7 @@
     }
   },
   "act_wait_ok": {
-    "message": "$SECONDS$ seconds elapsed",
+    "message": "已等候 $SECONDS$ 秒",
     "placeholders": {
       "seconds": {
         "content": "$1",
@@ -632,7 +624,7 @@
     }
   },
   "act_click_start": {
-    "message": "Click element with index $INDEX$",
+    "message": "正在点击索引为 $INDEX$ 的元素",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -641,7 +633,7 @@
     }
   },
   "act_errors_elementNotExist": {
-    "message": "Element with index $INDEX$ does not exist - retry or use alternative actions",
+    "message": "索引为 $INDEX$ 的元素不存在，请重试或改用其他操作",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -650,7 +642,7 @@
     }
   },
   "act_errors_elementNoLongerAvailable": {
-    "message": "Element no longer available with index $INDEX$ - most likely the page changed",
+    "message": "索引为 $INDEX$ 的元素已无法使用，页面可能已变更",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -659,7 +651,7 @@
     }
   },
   "act_click_fileUploader": {
-    "message": "Index $INDEX$ - has an element which opens file upload dialog. To upload files please use a specific function to upload files",
+    "message": "索引 $INDEX$ 的元素会开启文件上传对话框。如需上传文件，请使用指定的文件上传功能。",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -668,7 +660,7 @@
     }
   },
   "act_click_ok": {
-    "message": "Clicked button with index $INDEX$: $TEXT$",
+    "message": "已点击索引为 $INDEX$ 的按钮：$TEXT$",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -681,10 +673,10 @@
     }
   },
   "act_click_newTabOpened": {
-    "message": "New tab opened - switching to it"
+    "message": "已开启新标签页，正在切换至该标签页"
   },
   "act_inputText_start": {
-    "message": "Input text into index $INDEX$",
+    "message": "正在于索引为 $INDEX$ 的字段中输入文字",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -693,7 +685,7 @@
     }
   },
   "act_inputText_ok": {
-    "message": "Input $TEXT$ into index $INDEX$",
+    "message": "已将 \"$TEXT$\" 输入至索引为 $INDEX$ 的字段",
     "placeholders": {
       "text": {
         "content": "$1",
@@ -706,7 +698,7 @@
     }
   },
   "act_switchTab_start": {
-    "message": "Switching to tab $TAB_ID$",
+    "message": "正在切换至标签页 $TAB_ID$",
     "placeholders": {
       "tab_id": {
         "content": "$1",
@@ -715,7 +707,7 @@
     }
   },
   "act_switchTab_ok": {
-    "message": "Switched to tab $TAB_ID$",
+    "message": "已切换至标签页 $TAB_ID$",
     "placeholders": {
       "tab_id": {
         "content": "$1",
@@ -724,7 +716,7 @@
     }
   },
   "act_openTab_start": {
-    "message": "Opening $URL$ in new tab",
+    "message": "在新标签页开启 $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -733,7 +725,7 @@
     }
   },
   "act_openTab_ok": {
-    "message": "Opened $URL$ in new tab",
+    "message": "已在新标签页开启 $URL$",
     "placeholders": {
       "url": {
         "content": "$1",
@@ -742,7 +734,7 @@
     }
   },
   "act_closeTab_start": {
-    "message": "Closing tab $TAB_ID$",
+    "message": "正在关闭标签页 $TAB_ID$",
     "placeholders": {
       "tab_id": {
         "content": "$1",
@@ -751,7 +743,7 @@
     }
   },
   "act_closeTab_ok": {
-    "message": "Closed tab $TAB_ID$",
+    "message": "已关闭标签页 $TAB_ID$",
     "placeholders": {
       "tab_id": {
         "content": "$1",
@@ -760,7 +752,7 @@
     }
   },
   "act_cache_start": {
-    "message": "Caching findings: $CONTENT$",
+    "message": "正在缓存结果：$CONTENT$",
     "placeholders": {
       "content": {
         "content": "$1",
@@ -769,7 +761,7 @@
     }
   },
   "act_cache_ok": {
-    "message": "Cached findings: $CONTENT$",
+    "message": "已缓存结果：$CONTENT$",
     "placeholders": {
       "content": {
         "content": "$1",
@@ -778,7 +770,7 @@
     }
   },
   "act_scrollToPercent_start": {
-    "message": "Scroll to percent: $PERCENT$",
+    "message": "正在滚动至 $PERCENT$ 百分比位置",
     "placeholders": {
       "percent": {
         "content": "$1",
@@ -787,7 +779,7 @@
     }
   },
   "act_scrollToPercent_ok": {
-    "message": "Scrolled to percent: $PERCENT$",
+    "message": "已滚动至 $PERCENT$ 百分比位置",
     "placeholders": {
       "percent": {
         "content": "$1",
@@ -796,31 +788,31 @@
     }
   },
   "act_scrollToTop_start": {
-    "message": "Scroll to top"
+    "message": "滚动至顶部"
   },
   "act_scrollToTop_ok": {
-    "message": "Scrolled to top"
+    "message": "已滚动至顶部"
   },
   "act_scrollToBottom_start": {
-    "message": "Scroll to bottom"
+    "message": "滚动至底部"
   },
   "act_scrollToBottom_ok": {
-    "message": "Scrolled to bottom"
+    "message": "已滚动至底部"
   },
   "act_previousPage_start": {
-    "message": "Scroll to previous page"
+    "message": "滚动至上一页"
   },
   "act_previousPage_ok": {
-    "message": "Scrolled to previous page"
+    "message": "已滚动至上一页"
   },
   "act_nextPage_start": {
-    "message": "Scroll to next page"
+    "message": "滚动至下一页"
   },
   "act_nextPage_ok": {
-    "message": "Scrolled to next page"
+    "message": "已滚动至下一页"
   },
   "act_errors_alreadyAtTop": {
-    "message": "Element with index $INDEX$ is already at top, cannot scroll to previous page",
+    "message": "索引为 $INDEX$ 的元素已在顶部，无法滚动至上一页",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -829,10 +821,10 @@
     }
   },
   "act_errors_pageAlreadyAtTop": {
-    "message": "Already at top of page, cannot scroll to previous page"
+    "message": "页面已在顶部，无法滚动至上一页"
   },
   "act_errors_alreadyAtBottom": {
-    "message": "Element with index $INDEX$ is already at bottom, cannot scroll to next page",
+    "message": "索引为 $INDEX$ 的元素已在底部，无法滚动至下一页",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -841,10 +833,10 @@
     }
   },
   "act_errors_pageAlreadyAtBottom": {
-    "message": "Already at bottom of page, cannot scroll to next page"
+    "message": "页面已在底部，无法滚动至下一页"
   },
   "act_scrollToText_start": {
-    "message": "Scroll to text: $TEXT$, occurrence $OCCURRENCE$",
+    "message": "正在滚动至文字：\"$TEXT$\" ，第 $OCCURRENCE$ 次出现的位置",
     "placeholders": {
       "text": {
         "content": "$1",
@@ -857,7 +849,7 @@
     }
   },
   "act_scrollToText_ok": {
-    "message": "Scrolled to text: $TEXT$, occurrence $OCCURRENCE$",
+    "message": "已滚动至文字：\"$TEXT$\" ，第 $OCCURRENCE$ 次出现的位置",
     "placeholders": {
       "text": {
         "content": "$1",
@@ -870,7 +862,7 @@
     }
   },
   "act_scrollToText_notFound": {
-    "message": "Text '$TEXT$' (occurrence $OCCURRENCE$) not found or not visible",
+    "message": "找不到或看不见文字 \"$TEXT$\"（第 $OCCURRENCE$ 次出现）",
     "placeholders": {
       "text": {
         "content": "$1",
@@ -883,7 +875,7 @@
     }
   },
   "act_scrollToText_failed": {
-    "message": "Failed to scroll to text: $ERROR$",
+    "message": "滚动至文字失败：$ERROR$",
     "placeholders": {
       "error": {
         "content": "$1",
@@ -892,7 +884,7 @@
     }
   },
   "act_sendKeys_start": {
-    "message": "Send keys: $KEYS$",
+    "message": "发送按键：$KEYS$",
     "placeholders": {
       "keys": {
         "content": "$1",
@@ -901,7 +893,7 @@
     }
   },
   "act_sendKeys_ok": {
-    "message": "Sent keys: $KEYS$",
+    "message": "已发送按键：$KEYS$",
     "placeholders": {
       "keys": {
         "content": "$1",
@@ -910,7 +902,7 @@
     }
   },
   "act_getDropdownOptions_start": {
-    "message": "Getting options from dropdown with index $INDEX$",
+    "message": "正在从索引为 $INDEX$ 的下拉式菜单中取得选项",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -919,10 +911,10 @@
     }
   },
   "act_getDropdownOptions_useExactText": {
-    "message": "Use the exact text string in select_dropdown_option"
+    "message": "请在 select_dropdown_option 中使用完全相符的文字字符串"
   },
   "act_getDropdownOptions_ok": {
-    "message": "Got $COUNT$ options from dropdown",
+    "message": "已从下拉式菜单取得 $COUNT$ 个选项",
     "placeholders": {
       "count": {
         "content": "$1",
@@ -931,10 +923,10 @@
     }
   },
   "act_getDropdownOptions_noOptions": {
-    "message": "No options found in dropdown"
+    "message": "在下拉式菜单中找不到任何选项"
   },
   "act_getDropdownOptions_failed": {
-    "message": "Failed to get dropdown options: $ERROR$",
+    "message": "无法取得下拉式菜单选项：$ERROR$",
     "placeholders": {
       "error": {
         "content": "$1",
@@ -943,7 +935,7 @@
     }
   },
   "act_selectDropdownOption_start": {
-    "message": "Select option \"$TEXT$\" from dropdown with index $INDEX$",
+    "message": "正在从索引为 $INDEX$ 的下拉式菜单中选取 \"$TEXT$\" 选项",
     "placeholders": {
       "text": {
         "content": "$1",
@@ -956,7 +948,7 @@
     }
   },
   "act_selectDropdownOption_ok": {
-    "message": "Selected option \"$TEXT$\" from dropdown with index $INDEX$",
+    "message": "已从索引为 $INDEX$ 的下拉式菜单中选取 \"$TEXT$\" 选项",
     "placeholders": {
       "text": {
         "content": "$1",
@@ -969,7 +961,7 @@
     }
   },
   "act_selectDropdownOption_notSelect": {
-    "message": "Cannot select option: Element with index $INDEX$ is a $TAG_NAME$, not a SELECT",
+    "message": "无法选取选项：索引为 $INDEX$ 的元素是 $TAG_NAME$ 而非 SELECT 元素",
     "placeholders": {
       "index": {
         "content": "$1",
@@ -982,12 +974,63 @@
     }
   },
   "act_selectDropdownOption_failed": {
-    "message": "Failed to select option: $ERROR$",
+    "message": "无法选取选项：$ERROR$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "Option not found"
       }
     }
+  },
+  "options_analytics_title": {
+    "message": "数据分析设置"
+  },
+  "options_analytics_loadFailed": {
+    "message": "加载数据分析设置失败。"
+  },
+  "options_analytics_helpImprove": {
+    "message": "帮助改进 Nanobrowser"
+  },
+  "options_analytics_toggle": {
+    "message": "切换数据分析"
+  },
+  "options_analytics_shareData": {
+    "message": "分享匿名使用数据以帮助我们改进扩展程序"
+  },
+  "options_analytics_whatWeCollect": {
+    "message": "我们收集的内容："
+  },
+  "options_analytics_collect_metrics": {
+    "message": "任务执行指标（开始、完成、失败次数和持续时间）"
+  },
+  "options_analytics_collect_domains": {
+    "message": "访问的网站域名（例如 \"amazon.com\"，而非完整网址）"
+  },
+  "options_analytics_collect_errors": {
+    "message": "失败任务的错误类别（无敏感细节）"
+  },
+  "options_analytics_collect_stats": {
+    "message": "匿名使用统计"
+  },
+  "options_analytics_whatWeDontCollect": {
+    "message": "我们不收集的内容："
+  },
+  "options_analytics_dont_collect_personal": {
+    "message": "个人信息或登录凭证"
+  },
+  "options_analytics_dont_collect_urls": {
+    "message": "完整网址或页面内容"
+  },
+  "options_analytics_dont_collect_prompts": {
+    "message": "任务指令或用户提示"
+  },
+  "options_analytics_dont_collect_screenshots": {
+    "message": "屏幕录制或截图"
+  },
+  "options_analytics_dont_collect_sensitive": {
+    "message": "任何敏感或私人数据"
+  },
+  "options_analytics_disabled": {
+    "message": "数据分析已禁用。您可以随时重新启用以帮助改进 Nanobrowser。"
   }
 }

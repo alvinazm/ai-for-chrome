@@ -1,6 +1,24 @@
-import { useState, useEffect } from 'react';
-import { type GeneralSettingsConfig, generalSettingsStore, DEFAULT_GENERAL_SETTINGS } from '@extension/storage';
-import { t } from '@extension/i18n';
+import { useState, useEffect, useCallback } from 'react';
+import {
+  type GeneralSettingsConfig,
+  type UILanguage,
+  generalSettingsStore,
+  DEFAULT_GENERAL_SETTINGS,
+} from '@extension/storage';
+import { t, setLocale, subscribeLocale, type DevLocale } from '@extension/i18n';
+
+type LanguageLabelKey =
+  | 'options_general_language_en'
+  | 'options_general_language_zh_CN'
+  | 'options_general_language_zh_TW'
+  | 'options_general_language_pt_BR';
+
+const LANGUAGES: { value: UILanguage; labelKey: LanguageLabelKey }[] = [
+  { value: 'en', labelKey: 'options_general_language_en' },
+  { value: 'zh_CN', labelKey: 'options_general_language_zh_CN' },
+  { value: 'zh_TW', labelKey: 'options_general_language_zh_TW' },
+  { value: 'pt_BR', labelKey: 'options_general_language_pt_BR' },
+];
 
 interface GeneralSettingsProps {
   isDarkMode?: boolean;
@@ -8,24 +26,34 @@ interface GeneralSettingsProps {
 
 export const GeneralSettings = ({ isDarkMode = false }: GeneralSettingsProps) => {
   const [settings, setSettings] = useState<GeneralSettingsConfig>(DEFAULT_GENERAL_SETTINGS);
+  const [, setForceUpdate] = useState(0);
 
   useEffect(() => {
-    // Load initial settings
     generalSettingsStore.getSettings().then(setSettings);
   }, []);
 
-  const updateSetting = async <K extends keyof GeneralSettingsConfig>(key: K, value: GeneralSettingsConfig[K]) => {
-    // Optimistically update the local state for responsiveness
-    setSettings(prevSettings => ({ ...prevSettings, [key]: value }));
+  useEffect(() => {
+    const unsubscribe = subscribeLocale(() => {
+      setForceUpdate(prev => prev + 1);
+    });
+    return unsubscribe;
+  }, []);
 
-    // Call the store to update the setting
-    await generalSettingsStore.updateSettings({ [key]: value } as Partial<GeneralSettingsConfig>);
+  const updateSetting = useCallback(
+    async <K extends keyof GeneralSettingsConfig>(key: K, value: GeneralSettingsConfig[K]) => {
+      setSettings(prevSettings => ({ ...prevSettings, [key]: value }));
 
-    // After the store update (which might have side effects, e.g., useVision affecting displayHighlights),
-    // fetch the latest settings from the store and update the local state again to ensure UI consistency.
-    const latestSettings = await generalSettingsStore.getSettings();
-    setSettings(latestSettings);
-  };
+      if (key === 'language') {
+        setLocale(value as DevLocale);
+      }
+
+      await generalSettingsStore.updateSettings({ [key]: value } as Partial<GeneralSettingsConfig>);
+
+      const latestSettings = await generalSettingsStore.getSettings();
+      setSettings(latestSettings);
+    },
+    [],
+  );
 
   return (
     <section className="space-y-6">
@@ -227,6 +255,33 @@ export const GeneralSettings = ({ isDarkMode = false }: GeneralSettingsProps) =>
                 <span className="sr-only">{t('options_general_replayHistoricalTasks')}</span>
               </label>
             </div>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className={`text-base font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                {t('options_general_language')}
+              </h3>
+              <p className={`text-sm font-normal ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                {t('options_general_language_desc')}
+              </p>
+            </div>
+            <label htmlFor="language" className="sr-only">
+              {t('options_general_language')}
+            </label>
+            <select
+              id="language"
+              value={settings.language}
+              onChange={e => updateSetting('language', e.target.value as UILanguage)}
+              className={`rounded-md border px-3 py-2 ${
+                isDarkMode ? 'border-slate-600 bg-slate-700 text-gray-200' : 'border-gray-300 bg-white text-gray-700'
+              }`}>
+              {LANGUAGES.map(lang => (
+                <option key={lang.value} value={lang.value}>
+                  {t(lang.labelKey)}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>

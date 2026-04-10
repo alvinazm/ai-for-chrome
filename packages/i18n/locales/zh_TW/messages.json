@@ -209,8 +209,12 @@
     "message": "防火牆"
   },
   "options_tabs_help": {
-    "message": "說明"
+    "message": "幫助"
   },
+  "options_tabs_analytics": {
+    "message": "分析"
+  },
+
   "options_general_header": {
     "message": "一般"
   },
@@ -261,6 +265,24 @@
   },
   "options_general_replayHistoricalTasks_desc": {
     "message": "啟用儲存與重播代理程式的步驟歷史紀錄 (此為實驗性功能，可能存在問題)"
+  },
+  "options_general_language": {
+    "message": "介面語言"
+  },
+  "options_general_language_desc": {
+    "message": "選擇您的語言"
+  },
+  "options_general_language_en": {
+    "message": "English"
+  },
+  "options_general_language_zh_CN": {
+    "message": "简体中文"
+  },
+  "options_general_language_zh_TW": {
+    "message": "繁體中文"
+  },
+  "options_general_language_pt_BR": {
+    "message": "Português"
   },
   "options_models_providers_header": {
     "message": "LLM 提供者"

@@ -211,6 +211,10 @@
   "options_tabs_help": {
     "message": "Ajuda"
   },
+  "options_tabs_analytics": {
+    "message": "Análises"
+  },
+
   "options_general_header": {
     "message": "Geral"
   },
@@ -262,6 +266,25 @@
   "options_general_replayHistoricalTasks_desc": {
     "message": "Ativar o armazenamento e a reprodução do histórico de passos do agente (experimental, pode ter problemas)"
   },
+  "options_general_language": {
+    "message": "Idioma da Interface"
+  },
+  "options_general_language_desc": {
+    "message": "Escolha seu idioma"
+  },
+  "options_general_language_en": {
+    "message": "English"
+  },
+  "options_general_language_zh_CN": {
+    "message": "简体中文"
+  },
+  "options_general_language_zh_TW": {
+    "message": "繁體中文"
+  },
+  "options_general_language_pt_BR": {
+    "message": "Português"
+  },
+
   "options_models_providers_header": {
     "message": "Provedores de LLM"
   },

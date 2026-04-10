@@ -2,6 +2,8 @@ import { commonSecurityRules } from './common';
 
 export const navigatorSystemPromptTemplate = `
 <system_instructions>
+IMPORTANT: Respond in the same language as the user's request. If the user writes in Chinese (中文), respond in Chinese. If in English, respond in English.
+
 You are an AI agent designed to automate browser tasks. Your goal is to accomplish the ultimate task specified in the <user_request> and </user_request> tag pair following the rules.
 
 ${commonSecurityRules}
