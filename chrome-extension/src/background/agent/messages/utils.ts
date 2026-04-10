@@ -24,8 +24,7 @@ export const FILE_CONTENT_TAG_END = '</nano_file_content>';
 
 /**
  * Remove think tags from model output.
- * Handles both <think>... and <think>:... formats.
- * Also handles <tool_call> by extracting the JSON content inside.
+ * Uses the same approach as claw-for-chrome: consume think tags using indexOf with state machine.
  * @param text - The text containing potential think tags
  * @returns Text with think tags removed, tool_call content retained as JSON
  */
@@ -37,57 +36,59 @@ export function removeThinkTags(text: string): string {
   const TOOL_CALL_OPEN_TAG = '<tool_call>';
   const TOOL_CALL_CLOSE_TAG = '</tool_call>';
 
-  let buffer = text;
+  // Create state object (same as claw-for-chrome)
+  const state = {
+    buffer: '',
+    mode: 'text' as 'text' | 'thinking' | 'tool_call',
+  };
+
+  // Accumulate result
   let result = '';
-  let mode: 'text' | 'thinking' | 'tool_call' = 'text';
 
-  while (buffer) {
-    if (mode === 'thinking') {
-      // In thinking mode, look for close tag
-      const tagIndex = buffer.indexOf(THINK_CLOSE_TAG);
+  // Add the text to state buffer and process
+  if (text) {
+    state.buffer += text;
+  }
+
+  // Process with final=true to handle remaining content
+  while (state.buffer) {
+    if (state.mode === 'thinking') {
+      const tagIndex = state.buffer.indexOf(THINK_CLOSE_TAG);
       if (tagIndex >= 0) {
-        // Skip the thinking content
-        buffer = buffer.slice(tagIndex + THINK_CLOSE_TAG.length);
-        mode = 'text';
+        // Found close tag, skip the thinking content
+        state.buffer = state.buffer.slice(tagIndex + THINK_CLOSE_TAG.length);
+        state.mode = 'text';
         continue;
-      } else {
-        // No close tag found - MiniMax sometimes doesn't include it
-        // Try to find the next opening tag or newline to exit thinking mode
-        const nextNewline = buffer.indexOf('\n');
-        const nextOpenBrace = buffer.indexOf('{');
-
-        // If we see a JSON object starting, exit thinking mode and keep the rest
-        if (nextOpenBrace >= 0 && (nextNewline === -1 || nextOpenBrace < nextNewline)) {
-          // The JSON starts here, treat it as regular text
-          result += buffer;
-          break;
-        } else if (nextNewline >= 0) {
-          // Skip to the newline and try again
-          buffer = buffer.slice(nextNewline + 1);
-          continue;
-        } else {
-          // No more content
-          break;
-        }
       }
-    } else if (mode === 'tool_call') {
-      // In tool_call mode, look for close tag
-      const tagIndex = buffer.indexOf(TOOL_CALL_CLOSE_TAG);
+      // No close tag found - with final=true, treat remaining as thinking content
+      const remaining = state.buffer;
+      state.buffer = '';
+      // Don't add to result (skip think content)
+      state.mode = 'text';
+      break;
+    } else if (state.mode === 'tool_call') {
+      const tagIndex = state.buffer.indexOf(TOOL_CALL_CLOSE_TAG);
       if (tagIndex >= 0) {
         // Extract content between tool_call tags and ADD IT to result
-        const toolCallContent = buffer.slice(0, tagIndex);
+        const toolCallContent = state.buffer.slice(0, tagIndex);
         result += toolCallContent;
-        buffer = buffer.slice(tagIndex + TOOL_CALL_CLOSE_TAG.length);
-        mode = 'text';
+        state.buffer = state.buffer.slice(tagIndex + TOOL_CALL_CLOSE_TAG.length);
+        state.mode = 'text';
         continue;
       } else {
         // No close tag found
-        return result.trim();
+        const rawPayload = state.buffer;
+        state.buffer = '';
+        if (rawPayload) {
+          result += rawPayload;
+        }
+        state.mode = 'text';
+        break;
       }
     } else {
-      // In text mode, look for the next opening tag
-      const thinkIndex = buffer.indexOf(THINK_OPEN_TAG);
-      const toolCallIndex = buffer.indexOf(TOOL_CALL_OPEN_TAG);
+      // In text mode
+      const thinkIndex = state.buffer.indexOf(THINK_OPEN_TAG);
+      const toolCallIndex = state.buffer.indexOf(TOOL_CALL_OPEN_TAG);
 
       let tagIndex = -1;
       let nextMode: 'text' | 'thinking' | 'tool_call' = 'text';
@@ -95,24 +96,24 @@ export function removeThinkTags(text: string): string {
 
       if (thinkIndex >= 0 && (toolCallIndex < 0 || thinkIndex <= toolCallIndex)) {
         // Add text before think tag
-        result += buffer.slice(0, thinkIndex);
+        result += state.buffer.slice(0, thinkIndex);
         tagIndex = thinkIndex;
         nextMode = 'thinking';
         nextTagLength = THINK_OPEN_TAG.length;
       } else if (toolCallIndex >= 0) {
         // Add text before tool_call tag
-        result += buffer.slice(0, toolCallIndex);
+        result += state.buffer.slice(0, toolCallIndex);
         tagIndex = toolCallIndex;
         nextMode = 'tool_call';
         nextTagLength = TOOL_CALL_OPEN_TAG.length;
       } else {
         // No more tags, add remaining text
-        result += buffer;
+        result += state.buffer;
         break;
       }
 
-      buffer = buffer.slice(tagIndex + nextTagLength);
-      mode = nextMode;
+      state.buffer = state.buffer.slice(tagIndex + nextTagLength);
+      state.mode = nextMode;
     }
   }
 
