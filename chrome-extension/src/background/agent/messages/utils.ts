@@ -104,7 +104,7 @@ export function extractJsonFromModelOutput(content: string): Record<string, unkn
       throw new Error('Tool call structure does not contain parameters');
     }
 
-    // Handle <tool_call> format (without pipe)
+    // Handle <tool_call> format (without pipe) - MiniMax format
     if (processedContent.includes('<tool_call>')) {
       // Extract content between tool_call tags
       const startTag = '<tool_call>';
@@ -118,15 +118,21 @@ export function extractJsonFromModelOutput(content: string): Record<string, unkn
 
       processedContent = processedContent.substring(startIndex, endIndex).trim();
 
-      // Try to find and extract tool name and parameters
-      const toolNameMatch = processedContent.match(/<tool name="([^"]+)">/);
-      const paramMatch = processedContent.match(/<\/tool>/);
+      // MiniMax format: direct JSON inside tool_call tags
+      // Try to parse as JSON directly first
+      try {
+        return JSON.parse(processedContent);
+      } catch {
+        // If not valid JSON, try to find tool name and parameters
+        const toolNameMatch = processedContent.match(/<tool name="([^"]+)">/);
+        const paramMatch = processedContent.match(/<\/tool>/);
 
-      if (toolNameMatch && paramMatch) {
-        try {
-          return JSON.parse(paramMatch[1]);
-        } catch {
-          return { action: paramMatch[1], tool: toolNameMatch[1] };
+        if (toolNameMatch && paramMatch) {
+          try {
+            return JSON.parse(paramMatch[1]);
+          } catch {
+            return { action: paramMatch[1], tool: toolNameMatch[1] };
+          }
         }
       }
     }
