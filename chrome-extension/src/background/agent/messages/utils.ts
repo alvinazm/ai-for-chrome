@@ -23,28 +23,68 @@ export const FILE_CONTENT_TAG_START = '<nano_file_content>';
 export const FILE_CONTENT_TAG_END = '</nano_file_content>';
 
 /**
- * Remove think tags from model output
- * Some models use <think> tags for internal reasoning that should be removed
+ * Remove think tags from model output.
+ * Handles both <think>... and <think>:... formats.
  * @param text - The text containing potential think tags
  * @returns Text with think tags removed
  */
 export function removeThinkTags(text: string): string {
-  // Handle multiple formats of think tags
-  // Remove <think>... (standard)
-  let result = text.replace(/<think>[\s\S]*?<\/think>/g, '');
+  if (!text) return '';
 
-  // Remove <think>:... (with colon)
-  result = result.replace(/<think>:[\s\S]*?<\/think>/g, '');
+  // Use the same approach as claw-for-chrome: consume think tags using indexOf
+  const THINK_OPEN_TAG = '<think>';
+  const THINK_CLOSE_TAG = '</think>';
+  const TOOL_CALL_OPEN_TAG = '<tool_call>';
+  const TOOL_CALL_CLOSE_TAG = '</tool_call>';
 
-  // Remove any remaining <think> that wasn't closed properly
-  // Take everything after the last </think> or from start if no tags
-  const lastThinkEnd = result.lastIndexOf('</think>');
-  if (lastThinkEnd !== -1) {
-    result = result.substring(lastThinkEnd + 8);
+  let buffer = text;
+  let result = '';
+  let mode: 'text' | 'thinking' | 'tool_call' = 'text';
+
+  while (buffer) {
+    if (mode === 'thinking') {
+      // In thinking mode, look for close tag
+      const tagIndex = buffer.indexOf(THINK_CLOSE_TAG);
+      if (tagIndex >= 0) {
+        // Skip the thinking content
+        buffer = buffer.slice(tagIndex + THINK_CLOSE_TAG.length);
+        mode = 'text';
+        continue;
+      } else {
+        // No close tag found, consume everything up to the next tag
+        return result.trim();
+      }
+    } else {
+      // In text mode, look for the next opening tag
+      const thinkIndex = buffer.indexOf(THINK_OPEN_TAG);
+      const toolCallIndex = buffer.indexOf(TOOL_CALL_OPEN_TAG);
+
+      let tagIndex = -1;
+      let nextMode: 'text' | 'thinking' | 'tool_call' = 'text';
+      let nextTagLength = 0;
+
+      if (thinkIndex >= 0 && (toolCallIndex < 0 || thinkIndex <= toolCallIndex)) {
+        // Add text before think tag
+        result += buffer.slice(0, thinkIndex);
+        tagIndex = thinkIndex;
+        nextMode = 'thinking';
+        nextTagLength = THINK_OPEN_TAG.length;
+      } else if (toolCallIndex >= 0) {
+        // Add text before tool_call tag
+        result += buffer.slice(0, toolCallIndex);
+        tagIndex = toolCallIndex;
+        nextMode = 'tool_call';
+        nextTagLength = TOOL_CALL_OPEN_TAG.length;
+      } else {
+        // No more tags, add remaining text
+        result += buffer;
+        break;
+      }
+
+      buffer = buffer.slice(tagIndex + nextTagLength);
+      mode = nextMode;
+    }
   }
-
-  // Also handle case where there's no closing tag - remove everything up to first newline after <think>
-  result = result.replace(/<think>[^]*/, '');
 
   return result.trim();
 }
