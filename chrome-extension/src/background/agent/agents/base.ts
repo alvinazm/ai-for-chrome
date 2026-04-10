@@ -186,9 +186,10 @@ export abstract class BaseAgent<T extends z.ZodType, M = unknown> {
         ...this.callOptions,
       });
 
-      logger.debug(`[${this.modelName}] Response received: ${JSON.stringify(response).substring(0, 500)}`);
+      logger.debug(`[${this.modelName}] Response received: ${JSON.stringify(response).substring(0, 1000)}`);
 
       if (typeof response.content === 'string') {
+        logger.debug(`[${this.modelName}] Response content is string: "${response.content.substring(0, 500)}"`);
         const parsed = this.manuallyParseResponse(response.content);
         if (parsed) {
           return parsed;
