@@ -179,17 +179,22 @@ export abstract class BaseAgent<T extends z.ZodType, M = unknown> {
     logger.debug(`[${this.modelName}] Using manual JSON extraction fallback method`);
     const convertedInputMessages = convertInputMessages(inputMessages, this.modelName);
 
+    logger.debug(`[${this.modelName}] Invoking LLM in manual mode...`);
     try {
       const response = await this.chatLLM.invoke(convertedInputMessages, {
         signal: this.context.controller.signal,
         ...this.callOptions,
       });
 
+      logger.debug(`[${this.modelName}] Response received: ${JSON.stringify(response).substring(0, 500)}`);
+
       if (typeof response.content === 'string') {
         const parsed = this.manuallyParseResponse(response.content);
         if (parsed) {
           return parsed;
         }
+      } else {
+        logger.error(`[${this.modelName}] Response content is not a string:`, response.content);
       }
     } catch (error) {
       logger.error(`[${this.modelName}] LLM call failed in manual extraction mode:`, error);
