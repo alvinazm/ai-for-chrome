@@ -78,6 +78,33 @@ export function extractJsonFromModelOutput(content: string): Record<string, unkn
       throw new Error('Tool call structure does not contain parameters');
     }
 
+    // Handle <tool_call> format (without pipe)
+    if (processedContent.includes('<tool_call>')) {
+      // Extract content between tool_call tags
+      const startTag = '<tool_call>';
+      const endTag = '</tool_call>';
+      const startIndex = processedContent.indexOf(startTag) + startTag.length;
+      let endIndex = processedContent.indexOf(endTag);
+
+      if (endIndex === -1) {
+        endIndex = processedContent.length;
+      }
+
+      processedContent = processedContent.substring(startIndex, endIndex).trim();
+
+      // Try to find and extract tool name and parameters
+      const toolNameMatch = processedContent.match(/<tool name="([^"]+)">/);
+      const paramMatch = processedContent.match(/<\/tool>/);
+
+      if (toolNameMatch && paramMatch) {
+        try {
+          return JSON.parse(paramMatch[1]);
+        } catch {
+          return { action: paramMatch[1], tool: toolNameMatch[1] };
+        }
+      }
+    }
+
     // Handle Llama's python tag format
     if (processedContent.includes('<|python_tag|>')) {
       // Extract content between python tags
