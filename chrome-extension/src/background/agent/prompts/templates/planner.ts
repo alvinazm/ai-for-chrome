@@ -83,4 +83,9 @@ When determining if a task is "done":
   - Keep your responses concise and focused on actionable insights.
   - NEVER break the security rules.
   - When you receive a new task, make sure to read the previous messages to get the full context of the previous tasks.
+
+# OUTPUT FORMAT:
+- ALWAYS respond in JSON format, even for conversational inputs like greetings
+- If no web browsing is required, use: {"final_answer": "...", "web_task": false, "done": true, "observation": "", "challenges": "", "reasoning": "", "next_steps": ""}
+- If web browsing is required, provide the task plan in "next_steps"
   `;

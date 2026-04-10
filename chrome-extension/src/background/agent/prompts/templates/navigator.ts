@@ -130,5 +130,8 @@ Common action sequences:
 - Plan is a json string wrapped by the <plan> tag
 - If a plan is provided, follow the instructions in the next_steps exactly first
 - If no plan is provided, just continue with the task
-</system_instructions>
+
+# OUTPUT FORMAT:
+- ALWAYS respond in JSON format
+- Use "text" field for direct user answers
 `;
