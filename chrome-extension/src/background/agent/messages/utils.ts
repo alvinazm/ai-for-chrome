@@ -25,15 +25,15 @@ export const FILE_CONTENT_TAG_END = '</nano_file_content>';
 /**
  * Remove think tags from model output.
  * Handles both <think>... and <think>:... formats.
+ * Also handles <tool_call> by extracting the JSON content inside.
  * @param text - The text containing potential think tags
- * @returns Text with think tags removed
+ * @returns Text with think tags removed, tool_call content retained as JSON
  */
 export function removeThinkTags(text: string): string {
   if (!text) return '';
 
-  // Use the same approach as claw-for-chrome: consume think tags using indexOf
   const THINK_OPEN_TAG = '<think>';
-  const THINK_CLOSE_TAG = '</think>';
+  const THINK_CLOSE_TAG = '';
   const TOOL_CALL_OPEN_TAG = '<tool_call>';
   const TOOL_CALL_CLOSE_TAG = '</tool_call>';
 
@@ -51,7 +51,37 @@ export function removeThinkTags(text: string): string {
         mode = 'text';
         continue;
       } else {
-        // No close tag found, consume everything up to the next tag
+        // No close tag found - MiniMax sometimes doesn't include it
+        // Try to find the next opening tag or newline to exit thinking mode
+        const nextNewline = buffer.indexOf('\n');
+        const nextOpenBrace = buffer.indexOf('{');
+
+        // If we see a JSON object starting, exit thinking mode and keep the rest
+        if (nextOpenBrace >= 0 && (nextNewline === -1 || nextOpenBrace < nextNewline)) {
+          // The JSON starts here, treat it as regular text
+          result += buffer;
+          break;
+        } else if (nextNewline >= 0) {
+          // Skip to the newline and try again
+          buffer = buffer.slice(nextNewline + 1);
+          continue;
+        } else {
+          // No more content
+          break;
+        }
+      }
+    } else if (mode === 'tool_call') {
+      // In tool_call mode, look for close tag
+      const tagIndex = buffer.indexOf(TOOL_CALL_CLOSE_TAG);
+      if (tagIndex >= 0) {
+        // Extract content between tool_call tags and ADD IT to result
+        const toolCallContent = buffer.slice(0, tagIndex);
+        result += toolCallContent;
+        buffer = buffer.slice(tagIndex + TOOL_CALL_CLOSE_TAG.length);
+        mode = 'text';
+        continue;
+      } else {
+        // No close tag found
         return result.trim();
       }
     } else {
@@ -227,7 +257,21 @@ export function extractJsonFromModelOutput(content: string): Record<string, unkn
     }
 
     // Parse the cleaned content
-    return JSON.parse(processedContent);
+    // Add fallback: try to extract JSON using regex if direct parsing fails
+    try {
+      return JSON.parse(processedContent);
+    } catch {
+      // Try to find JSON using regex as fallback
+      const jsonMatch = processedContent.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        try {
+          return JSON.parse(jsonMatch[0]);
+        } catch {
+          // Fallback also failed
+        }
+      }
+      throw new ResponseParseError(`Could not manually extract JSON from model output`);
+    }
   } catch (e) {
     throw new ResponseParseError(`Could not manually extract JSON from model output`);
   }
