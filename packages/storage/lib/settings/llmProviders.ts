@@ -70,6 +70,7 @@ export function getProviderTypeByProviderId(providerId: string): ProviderTypeEnu
     case ProviderTypeEnum.Llama:
     case ProviderTypeEnum.Alibaba:
     case ProviderTypeEnum.MiniMax:
+    case ProviderTypeEnum.ZAI:
       return providerId;
     default:
       return ProviderTypeEnum.CustomOpenAI;
@@ -106,6 +107,8 @@ export function getDefaultDisplayNameFromProviderId(providerId: string): string 
       return 'Alibaba';
     case ProviderTypeEnum.MiniMax:
       return 'MiniMax';
+    case ProviderTypeEnum.ZAI:
+      return 'Z.AI';
     default:
       return providerId; // Use the provider id as display name for custom providers by default
   }
@@ -125,6 +128,7 @@ export function getDefaultProviderConfig(providerId: string): ProviderConfig {
     case ProviderTypeEnum.Llama: // Llama uses modelNames
     case ProviderTypeEnum.Alibaba: // Alibaba uses modelNames
     case ProviderTypeEnum.MiniMax: // MiniMax uses modelNames
+    case ProviderTypeEnum.ZAI: // Z.AI uses modelNames
       return {
         apiKey: '',
         name: getDefaultDisplayNameFromProviderId(providerId),
@@ -138,7 +142,9 @@ export function getDefaultProviderConfig(providerId: string): ProviderConfig {
                 ? 'https://dashscope.aliyuncs.com/compatible-mode/v1'
                 : providerId === ProviderTypeEnum.MiniMax
                   ? 'https://api.minimax.chat/v1'
-                  : undefined,
+                  : providerId === ProviderTypeEnum.ZAI
+                    ? 'https://open.bigmodel.cn/api/paas/v4/'
+                    : undefined,
         modelNames: [...(llmProviderModelNames[providerId] || [])],
         createdAt: Date.now(),
       };

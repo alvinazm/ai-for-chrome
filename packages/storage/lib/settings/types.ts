@@ -21,6 +21,7 @@ export enum ProviderTypeEnum {
   Llama = 'llama',
   Alibaba = 'alibaba',
   MiniMax = 'minimax',
+  ZAI = 'zai',
   CustomOpenAI = 'custom_openai',
 }
 
@@ -69,6 +70,7 @@ export const llmProviderModelNames = {
     'MiniMax-M2.1',
     'MiniMax-M2',
   ],
+  [ProviderTypeEnum.ZAI]: ['GLM-5.1', 'GLM-5', 'GLM-4.7', 'GLM-4.6', 'GLM-4.5'],
   // Custom OpenAI providers don't have predefined models as they are user-defined
 };
 
@@ -185,6 +187,16 @@ export const llmProviderParameters = {
     },
   },
   [ProviderTypeEnum.MiniMax]: {
+    [AgentNameEnum.Planner]: {
+      temperature: 0.7,
+      topP: 0.9,
+    },
+    [AgentNameEnum.Navigator]: {
+      temperature: 0.3,
+      topP: 0.85,
+    },
+  },
+  [ProviderTypeEnum.ZAI]: {
     [AgentNameEnum.Planner]: {
       temperature: 0.7,
       topP: 0.9,
