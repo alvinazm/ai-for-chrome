@@ -9,257 +9,252 @@
 [![Twitter](https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/nanobrowser_ai)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/NN3ABHggMK)
 [<img src="https://deepwiki.com/badge.svg" height="28" alt="Ask DeepWiki">](https://deepwiki.com/nanobrowser/nanobrowser)
-[![Sponsor](https://img.shields.io/badge/Sponsor-ff69b4?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/alexchenzl)
 
 </div>
 
 ## 🌐 Nanobrowser
 
-Nanobrowser is an open-source AI web automation tool that runs in your browser. A free alternative to OpenAI Operator with flexible LLM options and multi-agent system.
+Nanobrowser 是一款在浏览器中运行的免费开源 AI 网页自动化工具。作为 OpenAI Operator 的免费替代方案，提供灵活的 LLM 选项和多代理系统。
 
-⬇️ Get [Nanobrowser from Chrome Web Store](https://chromewebstore.google.com/detail/nanobrowser/imbddededgmcgfhfpcjmijokokekbkal) for free
+⬇️ 从 [Chrome 应用商店](https://chromewebstore.google.com/detail/nanobrowser/imbddededgmcgfhfpcjmijokokekbkal) 免费获取 Nanobrowser
 
-👏 Join the community in [Discord](https://discord.gg/NN3ABHggMK) | [X](https://x.com/nanobrowser_ai)
+👏 加入我们的 [Discord](https://discord.gg/NN3ABHggMK) | [X](https://x.com/nanobrowser_ai) 社区
 
-🌟 Loving Nanobrowser? Give us a star  and help spread the word!
-
-❤️ Support the project by [sponsoring us](https://github.com/sponsors/alexchenzl) - every contribution helps keep Nanobrowser free and open source!
+❤️ 喜欢 Nanobrowser 吗？请给我们一颗星星 🌟 并帮助分享！
 
 <div align="center">
 <img src="https://github.com/user-attachments/assets/112c4385-7b03-4b81-a352-4f348093351b" width="600" alt="Nanobrowser Demo GIF" />
-<p><em>Nanobrowser's multi-agent system analyzing HuggingFace in real-time, with the Planner intelligently self-correcting when encountering obstacles and dynamically instructing the Navigator to adjust its approach—all running locally in your browser.</em></p>
+<p><em>Nanobrowser 的多代理系统实时分析 HuggingFace，其中 Planner 会在遇到障碍时自动修正，并动态指示 Navigator 调整做法——这一切都在本地浏览器中执行。</em></p>
 </div>
 
-## 🔥Why Nanobrowser?
+## 🔥 为什么选择 Nanobrowser？
 
-Looking for a powerful AI browser agent without the $200/month price tag of OpenAI Operator? **Nanobrowser** , as a chrome extension, delivers premium web automation capabilities while keeping you in complete control:
+正在寻找功能强大的 AI 浏览器代理，却不想每月为 OpenAI Operator 支付 200 美元吗？**Nanobrowser** 作为一款 Chrome 扩展程序，提供先进的网页自动化能力，同时让您保有完全的控制权：
 
-- **100% Free** - No subscription fees or hidden costs. Just install and use your own API keys, and you only pay what you use with your own API keys.
-- **Privacy-Focused** - Everything runs in your local browser. Your credentials stay with you, never shared with any cloud service.
-- **Flexible LLM Options** - Connect to your preferred LLM providers with the freedom to choose different models for different agents.
-- **Fully Open Source** - Complete transparency in how your browser is automated. No black boxes or hidden processes.
+- **100% 免费** - 无订阅费或隐藏费用。安装后使用自己的 API 密钥，只需支付给供应商的 API 使用费。
+- **注重隐私** - 所有处理都在本地浏览器内完成。您的认证信息会存储在本地，绝不会与任何云端服务分享。
+- **灵活的 LLM 选项** - 可连接您偏好的 LLM 供应商，并为不同代理选择不同模型。
+- **完全开源** - 浏览器自动化过程完全透明，没有任何黑箱作业或隐藏的处理程序。
 
-> **Note:** We currently support OpenAI, Anthropic, Gemini, Ollama, Groq, Cerebras, Llama and custom OpenAI-Compatible providers, more providers will be supported.
-
-
-## 📊 Key Features
-
-- **Multi-agent System**: Specialized AI agents collaborate to accomplish complex web workflows
-- **Interactive Side Panel**: Intuitive chat interface with real-time status updates
-- **Task Automation**: Seamlessly automate repetitive web automation tasks across websites
-- **Follow-up Questions**: Ask contextual follow-up questions about completed tasks
-- **Conversation History**: Easily access and manage your AI agent interaction history
-- **Multiple LLM Support**: Connect your preferred LLM providers and assign different models to different agents
+> **请注意：** 我们目前支持 OpenAI、Anthropic、Gemini、Ollama、Groq、Cerebras、Llama 以及自定义的 OpenAI 兼容供应商，未来将会支持更多。
 
 
-## 🌐 Browser Support
+## 📊 主要功能
 
-**Officially Supported:**
-- **Chrome** - Full support with all features
-- **Edge** - Full support with all features
-
-**Not Supported:**
-- Firefox, Safari, and other Chromium variants (Opera, Arc, etc.)
-
-> **Note**: While Nanobrowser may function on other Chromium-based browsers, we recommend using Chrome or Edge for the best experience and guaranteed compatibility.
+- **多代理系统**：由专业的 AI 代理协同合作，完成复杂的网页工作流程
+- **交互式侧边面板**：直观的聊天界面，提供实时的状态更新
+- **任务自动化**：跨网站无缝自动化重复性任务
+- **后续提问**：针对已完成的任务提出与上下文相关的追问
+- **对话历史记录**：轻松存取并管理与 AI 代理的互动历史
+- **支持多种 LLM**：可连接您偏好的 LLM 供应商，并为不同代理指派不同模型
 
 
-## 🚀 Quick Start
+## 🌐 浏览器支持
 
-1. **Install from Chrome Web Store** (Stable Version):
-   * Visit the [Nanobrowser Chrome Web Store page](https://chromewebstore.google.com/detail/nanobrowser/imbddededgmcgfhfpcjmijokokekbkal)
-   * Click "Add to Chrome" button
-   * Confirm the installation when prompted
+**正式支持：**
+- **Chrome** - 完整支持所有功能
+- **Edge** - 完整支持所有功能
 
-> **Important Note**: For latest features, install from ["Manually Install Latest Version"](#-manually-install-latest-version) below, as Chrome Web Store version may be delayed due to review process.
+**不支持：**
+- Firefox、Safari，以及其他 Chromium 衍生浏览器 (Opera、Arc 等)
 
-2. **Configure Agent Models**:
-   * Click the Nanobrowser icon in your toolbar to open the sidebar
-   * Click the `Settings` icon (top right)
-   * Add your LLM API keys
-   * Choose which model to use for different agents (Navigator, Planner)
+> **注意**：虽然 Nanobrowser 可能可在其他 Chromium 系浏览器上运行，我们仍建议使用 Chrome 或 Edge，以获得最佳体验并确保兼容性。
 
-## 🔧 Manually Install Latest Version
 
-To get the most recent version with all the latest features:
+## 🚀 快速入门
 
-1. **Download**
-    * Download the latest `nanobrowser.zip` file from the official Github [release page](https://github.com/nanobrowser/nanobrowser/releases).
+1. **从 Chrome 应用商店安装** (稳定版)：
+   * 前往 [Nanobrowser 的 Chrome 应用商店页面](https://chromewebstore.google.com/detail/nanobrowser/imbddededgmcgfhfpcjmijokokekbkal)
+   * 点击一下 [添加至 Chrome] 按钮
+   * 在提示出现时确认安装
 
-2. **Install**:
-    * Unzip `nanobrowser.zip`.
-    * Open `chrome://extensions/` in Chrome
-    * Enable `Developer mode` (top right)
-    * Click `Load unpacked` (top left)
-    * Select the unzipped `nanobrowser` folder.
+> **重要提示**：要体验最新功能，请参考下方的 [「手动安装最新版本」](#-手动安装最新版本) 进行安装，因为 Chrome 应用商店的版本可能会因审核流程而延迟。
 
-3. **Configure Agent Models**
-    * Click the Nanobrowser icon in your toolbar to open the sidebar
-    * Click the `Settings` icon (top right).
-    * Add your LLM API keys.
-    * Choose which model to use for different agents (Navigator, Planner)
+2. **设置代理模型**：
+   * 点击工具栏中的 Nanobrowser 图标以打开侧边面板
+   * 点击右上角的 `设置` 图标
+   * 新增 LLM API 密钥
+   * 为不同代理 (Navigator、Planner) 选择要使用的模型
 
-4. **Upgrading**:
-    * Download the latest `nanobrowser.zip` file from the release page.
-    * Unzip and replace your existing Nanobrowser files with the new ones.
-    * Go to `chrome://extensions/` in Chrome and click the refresh icon on the Nanobrowser card.
+## 🔧 手动安装最新版本
 
-## 🛠️ Build from Source
+要取得包含所有最新功能的版本：
 
-If you prefer to build Nanobrowser yourself, follow these steps:
+1. **下载**
+    * 从官方 GitHub 的 [版本页面](https://github.com/nanobrowser/nanobrowser/releases) 下载最新的 `nanobrowser.zip` 文件。
 
-1. **Prerequisites**:
-   * [Node.js](https://nodejs.org/) (v22.12.0 or higher)
-   * [pnpm](https://pnpm.io/installation) (v9.15.1 or higher)
+2. **安装**：
+    * 解压 `nanobrowser.zip`。
+    * 在 Chrome 中打开 `chrome://extensions/`
+    * 启用 `开发者模式` (右上角)
+    * 点击 `加载未打包的扩展程序` (左上角)
+    * 选择已解压的 `nanobrowser` 文件夹。
 
-2. **Clone the Repository**:
+3. **设置代理模型**
+    * 点击工具栏中的 Nanobrowser 图标以打开侧边面板
+    * 点击右上角的 `设置` 图标。
+    * 新增 LLM API 密钥。
+    * 为不同代理 (Navigator、Planner) 选择要使用的模型。
+
+4. **升级**：
+    * 从版本页面下载最新的 `nanobrowser.zip` 文件。
+    * 解压并用新文件覆盖您现有的 Nanobrowser 文件。
+    * 前往 Chrome 的 `chrome://extensions/` 页面，然后在 Nanobrowser 卡片上点击刷新图标。
+
+## 🛠️ 从源代码构建
+
+如果您偏好自行构建 Nanobrowser，请依照以下步骤操作：
+
+1. **先决条件**：
+   * [Node.js](https://nodejs.org/) (v22.12.0 或更高版本)
+   * [pnpm](https://pnpm.io/installation) (v9.15.1 或更高版本)
+
+2. **克隆仓库**：
    ```bash
    git clone https://github.com/nanobrowser/nanobrowser.git
    cd nanobrowser
    ```
 
-3. **Install Dependencies**:
+3. **安装依赖包**：
    ```bash
    pnpm install
    ```
 
-4. **Build the Extension**:
+4. **构建扩展程序**：
    ```bash
    pnpm build
    ```
 
-5. **Load the Extension**:
-   * The built extension will be in the `dist` directory
-   * Follow the installation steps from the Manually Install section to load the extension into your browser
+5. **加载扩展程序**：
+   * 构建完成的扩展程序将位于 `dist` 目录中
+   * 依照「手动安装」一节中的步骤，将扩展程序加载至浏览器
 
-6. **Development Mode** (optional):
+6. **开发模式** (可选)：
    ```bash
    pnpm dev
    ```
 
-## 🤖 Choosing Your Models
+## 🤖 选择您的模型
 
-Nanobrowser allows you to configure different LLM models for each agent to balance performance and cost. Here are recommended configurations:
+Nanobrowser 允许您为每个代理设置不同的 LLM 模型，以平衡性能与成本。以下是建议的配置：
 
-### Better Performance
-- **Planner**: Claude Sonnet 4
-  - Better reasoning and planning capabilities
-- **Navigator**: Claude Haiku 3.5
-  - Efficient for web navigation tasks
-  - Good balance of performance and cost
+### 追求高性能
+- **Planner**：Claude Sonnet 4
+  - 更佳的推理与规划能力
+- **Navigator**：Claude Haiku 3.5
+  - 有效地处理网页导航任务
+  - 在性能与成本之间取得良好平衡
 
-### Cost-Effective Configuration
-- **Planner**: Claude Haiku or GPT-4o
-  - Reasonable performance at lower cost
-  - May require more iterations for complex tasks
-- **Navigator**: Gemini 2.5 Flash or GPT-4o-mini
-  - Lightweight and cost-efficient
-  - Suitable for basic navigation tasks
+### 讲求成本效益
+- **Planner**：Claude Haiku 或 GPT-4o
+  - 以较低成本获得合理的性能
+  - 处理复杂任务可能需要更多次的迭代
+- **Navigator**：Gemini 2.5 Flash 或 GPT-4o-mini
+  - 轻量级且具成本效益
+  - 适合基本的导航任务
 
-### Local Models
-- **Setup Options**:
-  - Use Ollama or other custom OpenAI-compatible providers to run models locally
-  - Zero API costs and complete privacy with no data leaving your machine
+### 本地模型
+- **设置选项**：
+  - 使用 Ollama 或其他自定义的 OpenAI 兼容供应商，在本地运行模型
+  - 零 API 费用并确保完全隐私，所有数据都保留在本地电脑
 
-- **Recommended Models**:
+- **推荐模型**：
   - **Qwen3-30B-A3B-Instruct-2507**
   - **Falcon3 10B**
   - **Qwen 2.5 Coder 14B**
   - **Mistral Small 24B**
-  - [Latest test results from community](https://gist.github.com/maximus2600/75d60bf3df62986e2254d5166e2524cb) 
-  - We welcome community experience sharing with other local models in our [Discord](https://discord.gg/NN3ABHggMK)
+  - [社区最新测试结果](https://gist.github.com/maximus2600/75d60bf3df62986e2254d5166e2524cb)
+  - 欢迎社区成员在我们的 [Discord](https://discord.gg/NN3ABHggMK) 分享其他本地模型的使用经验
 
-- **Prompt Engineering**:
-  - Local models require more specific and cleaner prompts
-  - Avoid high-level, ambiguous commands
-  - Break complex tasks into clear, detailed steps
-  - Provide explicit context and constraints
+- **提示词工程**：
+  - 本地模型通常需要更具体、清楚的提示词
+  - 避免使用高层次、模糊的指令
+  - 将复杂的任务拆解成清楚、详细的步骤
+  - 提供明确的上下文与限制条件
 
-> **Note**: The cost-effective configuration may produce less stable outputs and require more iterations for complex tasks.
+> **请注意**：讲求成本效益的配置可能会产生较不稳定的输出，且处理复杂任务时可能需要更多次的迭代。
 
-> **Tip**: Feel free to experiment with your own model configurations! Found a great combination? Share it with the community in our [Discord](https://discord.gg/NN3ABHggMK) to help others optimize their setup.
+> **提示**：欢迎尽情尝试自己的模型���置！找到绝佳组合了吗？到我们的 [Discord](https://discord.gg/NN3ABHggMK) 与社区分享，帮助大家优化配置。
 
-## 💡 See It In Action
+## 💡 实际应用案例
 
-Here are some powerful tasks you can accomplish with just a sentence:
+以下是几个只要一句话就能完成的强大任务：
 
-1. **News Summary**:
-   > "Go to TechCrunch and extract top 10 headlines from the last 24 hours"
+1. **新闻摘要**：
+   > "前往 TechCrunch，提取过去 24 小时内的 10 大头条新闻"
 
-2. **GitHub Research**:
-   > "Look for the trending Python repositories on GitHub with most stars"
+2. **GitHub 研究**：
+   > "在 GitHub 上找出星星数最多的热门 Python 仓库"
 
-3. **Shopping Research**:
-   > "Find a portable Bluetooth speaker on Amazon with a water-resistant design, under $50. It should have a minimum battery life of 10 hours"
+3. **购物研究**：
+   > "在 Amazon 上找一款具备防水设计、价格低于 50 美元的便携式蓝牙喇叭，且电池续航力至少要有 10 小时"
 
-## 🛠️ Roadmap
+## 🛠️ 发展蓝图
 
-We're actively developing Nanobrowser with exciting features on the horizon, welcome to join us! 
+我们正积极开发 Nanobrowser，未来将有更多令人期待的功能推出，欢迎加入我们！
 
-Check out our detailed roadmap and upcoming features in our [GitHub Discussions](https://github.com/nanobrowser/nanobrowser/discussions/85). 
+请至我们的 [GitHub Discussions](https://github.com/nanobrowser/nanobrowser/discussions/85) 查看详细的发展蓝图与即将推出的功能。
 
-## 🤝 Contributing
+## 🤝 如何贡献
 
-**We need your help to make Nanobrowser even better!**  Contributions of all kinds are welcome:
+**我们需要您的帮助，让 Nanobrowser 变得更好！** 我们欢迎各种形式的贡献：
 
-*  **Share Prompts & Use Cases** 
-   * Join our [Discord server](https://discord.gg/NN3ABHggMK).
-   * share how you're using Nanobrowser.  Help us build a library of useful prompts and real-world use cases.
-*  **Provide Feedback** 
-   * Try Nanobrowser and give us feedback on its performance or suggest improvements in our [Discord server](https://discord.gg/NN3ABHggMK).
-* **Contribute Code**
-   * Check out our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute code to the project.
-   * Submit pull requests for bug fixes, features, or documentation improvements.
-
-
-We believe in the power of open source and community collaboration.  Join us in building the future of web automation!
+*  **分享提示词与使用案例**
+   * 加入我们的 [Discord 服务器](https://discord.gg/NN3ABHggMK)。
+   * 分享您如何使用 Nanobrowser，帮助我们建立实用的提示词与实际应用案例数据库。
+*  **提供反馈意见**
+   * 试用 Nanobrowser，并在我们的 [Discord 服务器](https://discord.gg/NN3ABHggMK) 上提供性能反馈或改进建议。
+* **贡献代码**
+   * 请参阅我们的 [CONTRIBUTING.md](CONTRIBUTING.md)，了解如何为本项目贡献代码的指南。
+   * 针对错误修复、新功能或文件改进，提出 Pull Request。
 
 
-## 🔒 Security
+我们坚信开源与社区协作的力量。欢迎与我们一同打造网页自动化的未来！
 
-If you discover a security vulnerability, please **DO NOT** disclose it publicly through issues, pull requests, or discussions.
 
-Instead, please create a [GitHub Security Advisory](https://github.com/nanobrowser/nanobrowser/security/advisories/new) to report the vulnerability responsibly. This allows us to address the issue before it's publicly disclosed.
+## 🔒 安全性
 
-We appreciate your help in keeping Nanobrowser and its users safe!
+如果您发现安全漏洞，请**不要**透过 Issues、Pull Request 或 Discussions 公开披露。
 
-## 💬 Community
+请建立一个 [GitHub Security Advisory](https://github.com/nanobrowser/nanobrowser/security/advisories/new) 来负责任地回报此漏洞。这让我们能在漏洞被公开之前解决问题。
 
-Join our growing community of developers and users:
+我们感谢您协助维护 Nanobrowser 及其使用者的安全！
 
-- [Discord](https://discord.gg/NN3ABHggMK) - Chat with team and community
-- [Twitter](https://x.com/nanobrowser_ai) - Follow for updates and announcements
-- [GitHub Discussions](https://github.com/nanobrowser/nanobrowser/discussions) - Share ideas and ask questions
+## 💬 社区
 
-## 👏 Acknowledgments
+欢迎加入我们持续成长的开发者与使用者社区：
 
-Nanobrowser builds on top of other awesome open-source projects:
+- [Discord](https://discord.gg/NN3ABHggMK) - 与团队及社区成员交流
+- [Twitter](https://x.com/nanobrowser_ai) - 追踪最新的更新与公告
+- [GitHub Discussions](https://github.com/nanobrowser/nanobrowser/discussions) - 分享您的想法并提出问题
+
+## 👏 致谢
+
+Nanobrowser 的开发建立在许多优秀的开源项目之上：
 
 - [Browser Use](https://github.com/browser-use/browser-use)
 - [Puppeteer](https://github.com/EmergenceAI/Agent-E)
 - [Chrome Extension Boilerplate](https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite)
 - [LangChain](https://github.com/langchain-ai/langchainjs)
 
-Huge thanks to their creators and contributors!
+由衷感谢这些项目的建立者与贡献者！
 
-## 📄 License
+## 📄 授权
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+本项目采用 Apache License 2.0 授权 - 详情请参阅 [LICENSE](LICENSE) 文件。
 
-Made with ❤️ by the Nanobrowser Team. 
+由 Nanobrowser 团队用 ❤️ 打造。
 
-Like Nanobrowser? Give us a star 🌟 and join us in [Discord](https://discord.gg/NN3ABHggMK) | [X](https://x.com/nanobrowser_ai)
+喜欢 Nanobrowser 吗？请给我们一颗星星 🌟 并加入我们的 [Discord](https://discord.gg/NN3ABHggMK) | [X](https://x.com/nanobrowser_ai)
 
-## ⚠️ DISCLAIMER ON DERIVATIVE PROJECTS
+## ⚠️ 衍生项目免责声明
 
-**We explicitly *DO NOT* endorse, support, or participate in any** projects involving cryptocurrencies, tokens, NFTs, or other blockchain-related applications **based on this codebase.**
+我们明确「不予背书、不提供支持、也不参与」任何 基于本程序代码所打造、与加密货币、代币、NFT 或其他区块链相关应用有关的项目。
 
-**Any such derivative projects are NOT Affiliated with, or maintained by, or in any way connected to the official Nanobrowser project or its core team.**
+**此类衍生项目与官方 Nanobrowser 项目或核心团队** 「**没有任何关联**、**非由我们维护**、亦**未与我们有任何连接**」。
 
-**We assume NO LIABILITY for any losses, damages, or issues arising from the use of third-party derivative projects. Users interact with these projects at their own risk.**
+**对于使用第三方衍生项目所造成的任何损失、损害或问题，我们概不负责。** 使用者与其互动时请自行承担风险。
 
-**We reserve the right to publicly distance ourselves from any misuse or misleading use of our name, codebase, or brand.**
+**我们保留权利** 对任何滥用或误导性使用我们名称、代码或品牌的行为，公开声明切割并加以澄清。
 
-We encourage open-source innovation but urge our community to be discerning and cautious. Please ensure you understand the risks before using any software or service built upon our codebase by independent developers.
-
-
+我们鼓励开源创新，但也提醒社区务必审慎判断。请在使用由独立开发者���于���程序代码所打造的任何软件或服务前，先充分了解相关风险。
