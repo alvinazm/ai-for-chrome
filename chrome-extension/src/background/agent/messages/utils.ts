@@ -1,6 +1,7 @@
 import { type BaseMessage, AIMessage, HumanMessage, SystemMessage, ToolMessage } from '@langchain/core/messages';
 
 import { guardrails } from '@src/background/services/guardrails';
+import { logger } from '@src/background/log';
 import { ResponseParseError } from '../agents/errors';
 
 /**
@@ -47,8 +48,25 @@ export function removeThinkTags(text: string): string {
  * @throws Error if JSON parsing fails
  */
 export function extractJsonFromModelOutput(content: string): Record<string, unknown> {
+  logger.debug(`[extractJsonFromModelOutput] Input content length: ${content.length}`);
+  logger.debug(`[extractJsonFromModelOutput] First 200 chars: ${content.substring(0, 200)}`);
+
   try {
     let processedContent = content;
+
+    // Handle xml tag format
+    if (
+      processedContent.includes('<invoke name=') ||
+      processedContent.includes('<tool_call>') ||
+      processedContent.includes('<invoke name=')
+    ) {
+      // Check if it's wrapped in xml tags
+      const xmlMatch = processedContent.match(/<([^>]+)>([\s\S]*)<\/\1>/);
+      if (xmlMatch) {
+        processedContent = xmlMatch[2].trim();
+        logger.debug(`[extractJsonFromModelOutput] Extracted from XML tags: ${processedContent.substring(0, 200)}`);
+      }
+    }
 
     // Handle Llama's tool call format first
     if (processedContent.includes('<|tool_call_start_id|>')) {
