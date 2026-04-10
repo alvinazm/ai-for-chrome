@@ -217,11 +217,14 @@ export abstract class BaseAgent<T extends z.ZodType, M = unknown> {
   // Helper method to manually parse the response content
   protected manuallyParseResponse(content: string): this['ModelOutput'] | undefined {
     const cleanedContent = removeThinkTags(content);
+    logger.debug(`[manuallyParseResponse] Raw cleaned content: ${cleanedContent.substring(0, 500)}`);
     try {
       const extractedJson = extractJsonFromModelOutput(cleanedContent);
       return this.validateModelOutput(extractedJson);
     } catch (error) {
       logger.warning('manuallyParseResponse failed', error);
+      // Log full content for debugging
+      logger.error(`[manuallyParseResponse] Full content for debug: ${cleanedContent}`);
       return undefined;
     }
   }
