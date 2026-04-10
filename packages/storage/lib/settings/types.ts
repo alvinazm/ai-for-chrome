@@ -20,6 +20,7 @@ export enum ProviderTypeEnum {
   Cerebras = 'cerebras',
   Llama = 'llama',
   Alibaba = 'alibaba',
+  MiniMax = 'minimax',
   CustomOpenAI = 'custom_openai',
 }
 
@@ -56,6 +57,17 @@ export const llmProviderModelNames = {
     'qwen3.5-122b-a10b',
     'qwen3.5-flash',
     'qwen3.5-35b-a3b',
+  ],
+  [ProviderTypeEnum.MiniMax]: [
+    'MiniMax-M2.7-highspeed',
+    'MiniMax-M2.7',
+    'MiniMax-M2.5-highspeed',
+    'MiniMax-M2.5-lightning',
+    'MiniMax-M2.5',
+    'MiniMax-M2.1-highspeed',
+    'MiniMax-M2.1-lightning',
+    'MiniMax-M2.1',
+    'MiniMax-M2',
   ],
   // Custom OpenAI providers don't have predefined models as they are user-defined
 };
@@ -163,6 +175,16 @@ export const llmProviderParameters = {
     },
   },
   [ProviderTypeEnum.Alibaba]: {
+    [AgentNameEnum.Planner]: {
+      temperature: 0.7,
+      topP: 0.9,
+    },
+    [AgentNameEnum.Navigator]: {
+      temperature: 0.3,
+      topP: 0.85,
+    },
+  },
+  [ProviderTypeEnum.MiniMax]: {
     [AgentNameEnum.Planner]: {
       temperature: 0.7,
       topP: 0.9,
